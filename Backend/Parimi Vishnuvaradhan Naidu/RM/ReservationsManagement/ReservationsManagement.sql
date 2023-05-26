@@ -1,0 +1,15 @@
+show databases;
+use employeetraveldesk;
+show tables;
+drop database employeetraveldesk;
+create database employeetraveldesk;
+describe reservation_docs;
+describe reservation_types;
+describe reservations;
+insert into reservation_types(type_name) values('bus');
+insert into reservation_types(type_name) values('train');
+insert into reservation_types(type_name) values('cab');
+insert into reservation_types(type_name) values('flight');
+insert into reservation_types(type_name) values('hotel');
+select * from reservation_types;
+select * from reservations;
