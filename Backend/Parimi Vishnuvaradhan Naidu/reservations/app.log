@@ -1,0 +1,17 @@
+2023-05-26 16:31:59.739  INFO 19924 --- [main] c.c.e.r.ReservationsApplicationTests     : Starting ReservationsApplicationTests using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 19924 (started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Parimi Vishnuvaradhan Naidu\reservations)
+2023-05-26 16:31:59.743  INFO 19924 --- [main] c.c.e.r.ReservationsApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2023-05-26 16:32:00.864  INFO 19924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-26 16:32:00.895  INFO 19924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2023-05-26 16:32:01.840  INFO 19924 --- [main] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-05-26 16:32:02.906  INFO 19924 --- [main] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-05-26 16:32:02.998  INFO 19924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-26 16:32:03.185  INFO 19924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-05-26 16:32:03.532  INFO 19924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-05-26 16:32:03.744  INFO 19924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-05-26 16:32:04.036  INFO 19924 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-26 16:32:04.067  INFO 19924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-26 16:32:04.451  WARN 19924 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-26 16:32:05.779  INFO 19924 --- [main] c.c.e.r.ReservationsApplicationTests     : Started ReservationsApplicationTests in 6.522 seconds (JVM running for 8.243)
+2023-05-26 16:32:06.188  INFO 19924 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-26 16:32:06.192  INFO 19924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-05-26 16:32:06.218  INFO 19924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
