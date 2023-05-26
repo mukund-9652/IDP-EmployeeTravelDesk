@@ -1,0 +1,48 @@
+2023-05-19 12:34:45.481  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : Starting ReimbursementApplication using Java 1.8.0_311 on LTIN142819 with PID 37488 (C:\Users\2263011\Desktop\Employeetraveldesk\EmployeeTravelDesk\target\classes started by 2263011 in C:\Users\2263011\Desktop\Employeetraveldesk\EmployeeTravelDesk)
+2023-05-19 12:34:45.482  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:34:46.965  INFO 37488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:34:47.037  INFO 37488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:34:47.689  INFO 37488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-05-19 12:34:47.691  INFO 37488 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-19 12:34:47.692  INFO 37488 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2023-05-19 12:34:47.726  INFO 37488 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-19 12:34:47.727  INFO 37488 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2231 ms
+2023-05-19 12:34:47.805  INFO 37488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-05-19 12:34:47.885  INFO 37488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-05-19 12:34:47.896  INFO 37488 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:34:47.912  INFO 37488 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-05-19 12:34:48.029  INFO 37488 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:34:48.030  INFO 37488 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:34:48.327  WARN 37488 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:34:48.527  INFO 37488 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-19 12:34:48.545  INFO 37488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-05-19 12:34:48.550  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : Started ReimbursementApplication in 3.367 seconds (JVM running for 5895.59)
+2023-05-19 12:34:48.551  INFO 37488 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-19 12:38:28.860  INFO 37488 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-19 12:38:29.090  INFO 37488 --- [Thread-12] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-19 12:38:29.104  INFO 37488 --- [Thread-12] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:38:29.106  INFO 37488 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-05-19 12:38:29.123  INFO 37488 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-05-19 12:38:29.422  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : Starting ReimbursementApplication using Java 1.8.0_311 on LTIN142819 with PID 37488 (C:\Users\2263011\Desktop\Employeetraveldesk\EmployeeTravelDesk\target\classes started by 2263011 in C:\Users\2263011\Desktop\Employeetraveldesk\EmployeeTravelDesk)
+2023-05-19 12:38:29.422  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:38:29.633  INFO 37488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:38:29.653  INFO 37488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:38:29.813  INFO 37488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-05-19 12:38:29.814  INFO 37488 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-19 12:38:29.815  INFO 37488 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2023-05-19 12:38:29.838  INFO 37488 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-19 12:38:29.838  INFO 37488 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 411 ms
+2023-05-19 12:38:29.888  INFO 37488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-05-19 12:38:29.919  INFO 37488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-05-19 12:38:29.927  INFO 37488 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:38:29.936  INFO 37488 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-05-19 12:38:29.999  INFO 37488 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:38:29.999  INFO 37488 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:38:30.137  WARN 37488 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:38:30.255  INFO 37488 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-19 12:38:30.268  INFO 37488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-05-19 12:38:30.275  INFO 37488 --- [restartedMain] c.c.e.r.ReimbursementApplication         : Started ReimbursementApplication in 0.898 seconds (JVM running for 6117.315)
+2023-05-19 12:38:30.277  INFO 37488 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-19 12:38:35.806  INFO 37488 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-19 12:38:35.808  INFO 37488 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-19 12:38:35.809  INFO 37488 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
