@@ -1,4 +1,4 @@
-package com.EmployeeTravelDesk.ReservationsManagement;
+package com.EmployeeTravelDesk.ReservationsManagement.Exceptions;
 
 import org.springframework.http.HttpStatus;
 

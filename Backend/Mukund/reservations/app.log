@@ -1,0 +1,163 @@
+2023-06-01 04:09:40.287  WARN 20584 --- [mydatabase housekeeper] com.zaxxer.hikari.pool.HikariPool        : mydatabase - Thread starvation or clock leap detected (housekeeper delta=5h35m48s957ms877µs200ns).
+2023-06-01 04:15:01.111  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:15:01.378  INFO 20584 --- [Thread-374] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:15:01.380  INFO 20584 --- [Thread-374] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-01 04:15:01.392  INFO 20584 --- [Thread-374] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:15:01.395  INFO 20584 --- [Thread-374] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:15:01.399  INFO 20584 --- [Thread-374] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:15:01.760  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:15:01.760  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:15:02.138  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:15:02.173  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:15:02.405  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:15:02.406  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:15:02.406  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:15:02.428  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:15:02.428  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 661 ms
+2023-06-01 04:15:02.478  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:15:02.502  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:15:02.515  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:15:02.524  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:15:02.577  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:15:02.578  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:15:02.862  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:15:03.081  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:15:03.145  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:15:03.157  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 1.461 seconds (JVM running for 103843.776)
+2023-06-01 04:15:03.159  INFO 20584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-01 04:15:19.900  INFO 20584 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-01 04:15:19.905  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-01 04:15:19.907  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-01 04:18:37.934  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:18:38.543  INFO 20584 --- [Thread-378] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:18:38.544  INFO 20584 --- [Thread-378] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-01 04:18:38.559  INFO 20584 --- [Thread-378] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:18:38.560  INFO 20584 --- [Thread-378] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:18:38.565  INFO 20584 --- [Thread-378] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:18:38.826  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:18:38.826  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:18:39.075  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:18:39.101  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:18:39.293  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:18:39.294  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:18:39.294  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:18:39.324  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:18:39.324  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 495 ms
+2023-06-01 04:18:39.391  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:18:39.409  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:18:39.421  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:18:39.427  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:18:39.478  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:18:39.478  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:18:39.714  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:18:39.927  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:18:39.951  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:18:39.957  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 1.196 seconds (JVM running for 104060.577)
+2023-06-01 04:18:39.959  INFO 20584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-01 04:18:45.242  INFO 20584 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-01 04:18:45.244  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-01 04:18:45.246  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-01 04:21:10.516  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:21:10.928  INFO 20584 --- [Thread-382] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:21:10.929  INFO 20584 --- [Thread-382] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-01 04:21:10.939  INFO 20584 --- [Thread-382] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:21:10.940  INFO 20584 --- [Thread-382] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:21:10.954  INFO 20584 --- [Thread-382] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:21:11.437  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:21:11.437  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:21:11.980  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:21:12.032  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:21:12.264  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:21:12.265  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:21:12.265  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:21:12.291  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:21:12.292  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 849 ms
+2023-06-01 04:21:12.357  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:21:12.383  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:21:12.395  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:21:12.405  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:21:12.465  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:21:12.466  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:21:12.735  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:21:12.931  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:21:12.955  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:21:12.963  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 1.602 seconds (JVM running for 104213.583)
+2023-06-01 04:21:12.966  INFO 20584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-01 04:21:25.834  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:21:26.081  INFO 20584 --- [Thread-386] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:21:26.097  INFO 20584 --- [Thread-386] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:21:26.098  INFO 20584 --- [Thread-386] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:21:26.102  INFO 20584 --- [Thread-386] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:21:26.371  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:21:26.372  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:21:26.732  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:21:26.789  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:21:26.956  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:21:26.957  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:21:26.958  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:21:26.982  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:21:26.982  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 605 ms
+2023-06-01 04:21:27.043  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:21:27.066  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:21:27.085  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:21:27.096  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:21:27.146  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:21:27.147  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:21:27.486  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:21:27.820  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:21:27.847  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:21:27.857  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 1.546 seconds (JVM running for 104228.476)
+2023-06-01 04:21:27.862  INFO 20584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-01 04:21:40.816  INFO 20584 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-01 04:21:40.817  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-01 04:21:40.819  INFO 20584 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-06-01 04:23:16.194  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:23:16.489  INFO 20584 --- [Thread-390] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:23:16.489  INFO 20584 --- [Thread-390] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-01 04:23:16.497  INFO 20584 --- [Thread-390] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:23:16.501  INFO 20584 --- [Thread-390] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:23:16.506  INFO 20584 --- [Thread-390] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:23:16.794  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:23:16.794  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:23:17.142  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:23:17.194  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:23:17.402  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:23:17.402  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:23:17.403  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:23:17.425  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:23:17.425  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 623 ms
+2023-06-01 04:23:17.478  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:23:17.496  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:23:17.508  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:23:17.514  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:23:17.560  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:23:17.560  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:23:17.864  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:23:18.040  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:23:18.059  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:23:18.069  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 1.332 seconds (JVM running for 104338.689)
+2023-06-01 04:23:18.072  INFO 20584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-01 04:24:06.321  INFO 20584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-01 04:24:06.605  INFO 20584 --- [Thread-394] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-01 04:24:06.617  INFO 20584 --- [Thread-394] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:24:06.619  INFO 20584 --- [Thread-394] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown initiated...
+2023-06-01 04:24:06.625  INFO 20584 --- [Thread-394] com.zaxxer.hikari.HikariDataSource       : mydatabase - Shutdown completed.
+2023-06-01 04:24:06.939  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Starting ReservationsApplication using Java 1.8.0_202 on DESKTOP-M2VPVFJ with PID 20584 (C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations\target\classes started by HP in C:\Users\HP\Desktop\IDP-EMPLOYEE-TRAVEL-DESK\Backend\Mukund\reservations)
+2023-06-01 04:24:06.940  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-06-01 04:24:07.555  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-01 04:24:07.633  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2023-06-01 04:24:08.019  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-06-01 04:24:08.022  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-01 04:24:08.022  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-01 04:24:08.054  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-01 04:24:08.055  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1107 ms
+2023-06-01 04:24:08.129  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Starting...
+2023-06-01 04:24:08.153  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : mydatabase - Start completed.
+2023-06-01 04:24:08.167  INFO 20584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-01 04:24:08.179  INFO 20584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-01 04:24:08.268  INFO 20584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-01 04:24:08.270  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-01 04:24:08.678  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-01 04:24:09.949  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-01 04:24:10.032  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-06-01 04:24:10.045  INFO 20584 --- [restartedMain] c.c.e.r.ReservationsApplication          : Started ReservationsApplication in 3.18 seconds (JVM running for 104390.665)

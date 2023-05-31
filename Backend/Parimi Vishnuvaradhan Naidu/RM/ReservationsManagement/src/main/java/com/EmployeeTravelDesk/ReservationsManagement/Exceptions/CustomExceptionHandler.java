@@ -1,6 +1,5 @@
-package com.EmployeeTravelDesk.ReservationsManagement;
+package com.EmployeeTravelDesk.ReservationsManagement.Exceptions;
 
-import com.EmployeeTravelDesk.ReservationsManagement.Exceptions.CustomException;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.http.HttpStatus;

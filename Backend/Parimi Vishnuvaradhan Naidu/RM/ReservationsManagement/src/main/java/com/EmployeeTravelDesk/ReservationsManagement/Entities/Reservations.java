@@ -1,10 +1,7 @@
 package com.EmployeeTravelDesk.ReservationsManagement.Entities;
 
 import java.time.LocalDate;
-//import java.util.List;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,151 +10,240 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
-//import javax.persistence.ManytoOne;
-import javax.validation.constraints.Positive;
 
-import org.springframework.data.annotation.CreatedDate;
-
-//import antlr.collections.List;
-
-import javax.validation.constraints.NotNull;
 @Entity
-@Table(name="Reservations")
+@Table(name = "reservations")
 public class Reservations {
-	
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column(name="reservationsDoneByEmployeeId")
-	private long reservationsDoneByEmployeeId;
+	public Reservations() {
+		
+	}
 
-	private long travelRequestId;
-	 
+	public Reservations(Integer id, int reservationDoneByEmployeeId, int travelRequestId,
+			ReservationTypes reservationTypes, LocalDate createdOn, String reservationDoneWithEntity,
+			LocalDate reservationDate, int amount, String confirmationId, String remarks) {
+		super();
+		this.id = id;
+		this.reservationDoneByEmployeeId = reservationDoneByEmployeeId;
+		this.travelRequestId = travelRequestId;
+		this.reservationTypes = reservationTypes;
+		this.createdOn = createdOn;
+		this.reservationDoneWithEntity = reservationDoneWithEntity;
+		ReservationDate = reservationDate;
+		this.amount = amount;
+		this.confirmationId = confirmationId;
+		this.remarks = remarks;
+	}
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Integer id;
+
+	@Column(name = "reservationdonebyemployeeid")
+	private int reservationDoneByEmployeeId;
+
+	@Column(name = "travelrequestid")
+	private int travelRequestId;
+
 	@ManyToOne
-	@JoinColumn(name="reservationTypeId")
-	private ReservationTypes reservationTypeId;
-	
-	
-	
-	@CreatedDate
-	@Column(columnDefinition ="Date default(curdate())" )
+	@JoinColumn(name = "reservationtypeid")
+	private ReservationTypes reservationTypes;
+
+	@Column(name="createdon")
 	private LocalDate createdOn;
 	
+	@Column(name="reservationdonewithentity")
 	private String reservationDoneWithEntity;
 	
-	@CreatedDate
-	@Column(columnDefinition = "Date default(curdate())")
-	private LocalDate reservationDate;
-	@Positive (message = "amount must be positive only")
-	@NotNull(message = "Amount must be not null")
-	@Column(name="Amount")
-	private long amount;
-	private String confirmationID;
+	@Column(name="reservationdate")
+	private LocalDate ReservationDate;
+
+	@Column(name="amount")
+	private int amount;
+	
+	@Column(name="confirmationid")
+	private String confirmationId;
+	
+	@Column(name="remarks")
 	private String remarks;
 	
-	@OneToMany(mappedBy = "reservationid",cascade = CascadeType.ALL)
-	private List<ReservationDocs> reservationDocsList;
-
 	
-	@Override
-	public String toString() {
-		return "Reservations [reservationsDoneByEmployeeId=" + reservationsDoneByEmployeeId + ", travelRequestId="
-				+ travelRequestId + ", reservationTypeId=" + reservationTypeId + ", createdOn=" + createdOn
-				+ ", reservationDoneWithEntity=" + reservationDoneWithEntity + ", reservationDate=" + reservationDate
-				+ ", amount=" + amount + ", confirmationID=" + confirmationID + ", remarks=" + remarks + "]";
-	}
-	public int getId() {
+	@PrePersist
+    public void prePersist() {
+        createdOn = LocalDate.now();
+    }
+
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+
+	/**
+	 * @return the reservationDoneByEmployeeId
+	 */
+	public int getReservationDoneByEmployeeId() {
+		return reservationDoneByEmployeeId;
 	}
-	public long getReservationsDoneByEmployeeId() {
-		return reservationsDoneByEmployeeId;
-	}
-	public void setReservationsDoneByEmployeeId(long reservationsDoneByEmployeeId) {
-		this.reservationsDoneByEmployeeId = reservationsDoneByEmployeeId;
-	}
-	public long getTravelRequestId() {
+
+
+	/**
+	 * @return the travelRequestId
+	 */
+	public int getTravelRequestId() {
 		return travelRequestId;
 	}
-	public void setTravelRequestId(long travelRequestId) {
-		this.travelRequestId = travelRequestId;
+
+
+	/**
+	 * @return the reservationTypes
+	 */
+	public ReservationTypes getReservationTypes() {
+		return reservationTypes;
 	}
-	public ReservationTypes getReservationTypeId() {
-		return reservationTypeId;
-	}
-	public void setReservationTypeId(ReservationTypes reservationTypeId) {
-		this.reservationTypeId = reservationTypeId;
-	}
+
+
+	/**
+	 * @return the createdOn
+	 */
 	public LocalDate getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(LocalDate createdOn) {
-		this.createdOn = createdOn;
-	}
+
+
+	/**
+	 * @return the reservationDoneWithEntity
+	 */
 	public String getReservationDoneWithEntity() {
 		return reservationDoneWithEntity;
 	}
-	public void setReservationDoneWithEntity(String reservationDoneWithEntity) {
-		this.reservationDoneWithEntity = reservationDoneWithEntity;
-	}
+
+
+	/**
+	 * @return the reservationDate
+	 */
 	public LocalDate getReservationDate() {
-		return reservationDate;
+		return ReservationDate;
 	}
-	public void setReservationDate(LocalDate reservationDate) {
-		this.reservationDate = reservationDate;
-	}
-	public long getAmount() {
+
+
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(long amount) {
-		this.amount = amount;
+
+
+	/**
+	 * @return the confirmationId
+	 */
+	public String getConfirmationId() {
+		return confirmationId;
 	}
-	public String getConfirmationID() {
-		return confirmationID;
-	}
-	public void setConfirmationID(String confirmationID) {
-		this.confirmationID = confirmationID;
-	}
+
+
+	/**
+	 * @return the remarks
+	 */
 	public String getRemarks() {
 		return remarks;
 	}
+
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	/**
+	 * @param reservationDoneByEmployeeId the reservationDoneByEmployeeId to set
+	 */
+	public void setReservationDoneByEmployeeId(int reservationDoneByEmployeeId) {
+		this.reservationDoneByEmployeeId = reservationDoneByEmployeeId;
+	}
+
+
+	/**
+	 * @param travelRequestId the travelRequestId to set
+	 */
+	public void setTravelRequestId(int travelRequestId) {
+		this.travelRequestId = travelRequestId;
+	}
+
+
+	/**
+	 * @param reservationTypes the reservationTypes to set
+	 */
+	public void setReservationTypes(ReservationTypes reservationTypes) {
+		this.reservationTypes = reservationTypes;
+	}
+
+
+	/**
+	 * @param createdOn the createdOn to set
+	 */
+	public void setCreatedOn(LocalDate createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+	/**
+	 * @param reservationDoneWithEntity the reservationDoneWithEntity to set
+	 */
+	public void setReservationDoneWithEntity(String reservationDoneWithEntity) {
+		this.reservationDoneWithEntity = reservationDoneWithEntity;
+	}
+
+
+	/**
+	 * @param reservationDate the reservationDate to set
+	 */
+	public void setReservationDate(LocalDate reservationDate) {
+		ReservationDate = reservationDate;
+	}
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+	/**
+	 * @param confirmationId the confirmationId to set
+	 */
+	public void setConfirmationId(String confirmationId) {
+		this.confirmationId = confirmationId;
+	}
+
+
+	/**
+	 * @param remarks the remarks to set
+	 */
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public List<ReservationDocs> getReservationDocsList() {
-		return reservationDocsList;
-	}
-	public void setReservationDocsList(List<ReservationDocs> reservationDocsList) {
-		this.reservationDocsList = reservationDocsList;
-	}
-	
-	
 
-	public Reservations(long reservationsDoneByEmployeeId, long travelRequestId, ReservationTypes reservationTypeId,
-			LocalDate createdOn, String reservationDoneWithEntity, LocalDate reservationDate,
-			@Positive(message = "amount must be positive only") @NotNull(message = "Amount must be not null") long amount,
-			String confirmationID, String remarks) {
-		super();
-		this.reservationsDoneByEmployeeId = reservationsDoneByEmployeeId;
-		this.travelRequestId = travelRequestId;
-		this.reservationTypeId = reservationTypeId;
-		this.createdOn = createdOn;
-		this.reservationDoneWithEntity = reservationDoneWithEntity;
-		this.reservationDate = reservationDate;
-		this.amount = amount;
-		this.confirmationID = confirmationID;
-		this.remarks = remarks;
+
+	@Override
+	public String toString() {
+		return "Reservations [id=" + id + ", reservationDoneByEmployeeId=" + reservationDoneByEmployeeId
+				+ ", travelRequestId=" + travelRequestId + ", reservationTypes=" + reservationTypes + ", createdOn="
+				+ createdOn + ", reservationDoneWithEntity=" + reservationDoneWithEntity + ", ReservationDate="
+				+ ReservationDate + ", amount=" + amount + ", confirmationId=" + confirmationId + ", remarks=" + remarks
+				+ "]";
 	}
-	public Reservations()
-	{
-	}
+
 }
-	
-	
-	

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.EmployeeTravelDesk.ReservationsManagement.Entities.Reservations;
@@ -14,6 +15,7 @@ import com.EmployeeTravelDesk.ReservationsManagement.Exceptions.CustomException;
 import com.EmployeeTravelDesk.ReservationsManagement.Services.ReservationsServices;
 
 @RestController
+@RequestMapping("/api/reservations")
 public class ReservationController {
 	@Autowired
 	private ReservationsServices reservationServices;
@@ -23,12 +25,12 @@ public class ReservationController {
 		this.reservationServices.addReservation(reservations);
 	}
 	
-	@GetMapping("/track/{travelrequestid}")
+	@GetMapping("/track/{travelRequestId}")
 	public List<Reservations> getReservationsByTravelRequestId(@PathVariable long travelRequestId) throws CustomException{
 		return this.reservationServices.getReservationsByTravelRequestId(travelRequestId);
 	}
 	
-	@GetMapping("/{reservationid}")
+	@GetMapping("/{id}")
 	public Reservations getReservationsById(@PathVariable int id) {
 		return this.reservationServices.getReservationsById(id);
 	}

@@ -18,8 +18,6 @@ import org.springframework.data.annotation.CreatedDate;
 //import com.EmployeeTravelDesk.ReservationsManagement.Entities.ReservationDocs;
 import com.EmployeeTravelDesk.ReservationsManagement.Entities.ReservationTypes;
 
-@Entity
-@Table(name = "Reservations")
 public class ReservationsDTO {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,21 +4,26 @@ package com.EmployeeTravelDesk.ReservationsManagement.Entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="reservationtypes")
 public class ReservationTypes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="typeid")
 	private int typeId;
 	
+	@Column(name="typename")
 	private String typeName;
 	
-	@OneToMany(mappedBy = "reservationTypeId",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "reservationTypes",cascade = CascadeType.ALL)
 	private List<Reservations> reservationList;
 
 	public int getTypeId() {

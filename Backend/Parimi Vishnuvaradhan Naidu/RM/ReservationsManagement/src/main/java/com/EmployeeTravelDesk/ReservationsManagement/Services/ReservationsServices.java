@@ -36,9 +36,6 @@ public class ReservationsServices {
 	
 	public List<Reservations> getReservationsByTravelRequestId(long travelRequestId) throws CustomException {
 		List<Reservations> reservations = reservationsRepo.findByTravelRequestId(travelRequestId);
-		if (reservations == null)
-			throw new CustomException("no travelRequestId found in Reservations"+ travelRequestId);
-		
 		return reservations;
 			
 	}
