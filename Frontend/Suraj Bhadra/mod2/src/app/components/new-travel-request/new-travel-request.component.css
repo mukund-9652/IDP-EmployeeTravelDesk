@@ -1,0 +1,39 @@
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formStyle-inside{
+    display: flex;
+    margin:1px;
+    justify-content: flex-start;
+    align-items:flex-start;
+    width: 40vw;
+    background-color: #eee;
+    padding: 20px;
+ 
+}
+.container{
+    background-color: #e76565;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    height:90vh;
+}
+h2{
+    color: #eee;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.buttonCl{
+    padding-left:20px ;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

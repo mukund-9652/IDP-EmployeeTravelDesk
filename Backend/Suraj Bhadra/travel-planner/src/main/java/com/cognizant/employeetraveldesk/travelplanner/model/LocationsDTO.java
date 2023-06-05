@@ -47,4 +47,8 @@ public class LocationsDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public LocationsDTO(String string) {
+		// TODO Auto-generated constructor stub
+	}
 }

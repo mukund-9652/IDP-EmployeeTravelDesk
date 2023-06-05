@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="container">
+   
+
+    <form (ngSubmit)="submitForm()" #travelForm="ngForm" class="formStyle">
+        <h2>Create New Travel Request</h2>
+      <div class="formStyle-inside">
+        <label for="fromDate">From Date: </label>
+        <input type="date" id="fromDate" name="fromDate" required [(ngModel)]="travelRequest.fromDate">
+      </div>
+  
+      <div class="formStyle-inside">
+        <label for="toDate">To Date: </label>
+        <input type="date" id="toDate" name="toDate" required [(ngModel)]="travelRequest.toDate">
+      </div>
+  
+      <div class="formStyle-inside">
+        <label for="location">Location: </label>
+        <select id="location" name="location" required [(ngModel)]="travelRequest.location">
+          <option value="">Select Location</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Goa">Goa</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Pune">Pune</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+  
+      <div class="formStyle-inside">
+        <label for="purpose">Purpose: </label>
+        <input type="text" id="purpose" name="purpose" required [(ngModel)]="travelRequest.purpose">
+      </div>
+  
+      <div class="formStyle-inside">
+        <label>Priority: </label>
+        <label for="priorityLow">
+          <input type="radio" id="priorityLow" name="priority" value="Low" [(ngModel)]="travelRequest.priority"> Low
+        </label>
+        <label for="priorityMedium">
+          <input type="radio" id="priorityMedium" name="priority" value="Medium" [(ngModel)]="travelRequest.priority"> Medium
+        </label>
+        <label for="priorityHigh">
+          <input type="radio" id="priorityHigh" name="priority" value="High" [(ngModel)]="travelRequest.priority"> High
+        </label>
+      </div>
+  
+      <div class="formStyle-inside"> 
+        <label for="hrId">HR ID: </label>
+        <input type="text" id="hrId" name="hrId" [(ngModel)]="travelRequest.hrId">
+      </div>
+  
+      <button class="buttonCl" type="submit">Submit</button>
+    </form>
+  
+    <div class="formStyle-inside" *ngIf="submitted">
+      <p>Travel request submitted successfully!</p>
+      <p>Travel Request ID: {{ generatedRequestId }}</p>
+    </div>
+  </div>
+  

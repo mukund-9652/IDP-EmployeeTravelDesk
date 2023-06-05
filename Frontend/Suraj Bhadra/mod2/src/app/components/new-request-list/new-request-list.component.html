@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+<h2>Travel Request List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Location</th>
+        <th>Purpose</th>
+        <th>Priority</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of travelRequests">
+        <td>{{ request.id }}</td>
+        <td>{{ request.fromDate }}</td>
+        <td>{{ request.toDate }}</td>
+        <td>{{ request.location }}</td>
+        <td>{{ request.purpose }}</td>
+        <td>{{ request.priority }}</td>
+        <td>
+          <button (click)="approveRequest(request.id)">Approve</button>
+          <button (click)="rejectRequest(request.id)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

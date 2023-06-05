@@ -1,0 +1,32 @@
+.container{
+    background-color: #29d0f1e8;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.inside-container{
+    
+    color: #ef5353;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 59px;
+    border-radius: 4%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.route{
+    color: #eee;
+    background-color: #111;
+    cursor: pointer;
+    text-decoration: none;
+}
+.route:hover{
+    transition: 200ms;
+    transform: scale(1.03);
+}

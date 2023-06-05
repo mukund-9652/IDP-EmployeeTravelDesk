@@ -162,4 +162,8 @@ public class TravelRequestsDTO {
 		this.travelBudgetAllocations = travelBudgetAllocations;
 	}
 
+	public TravelRequestsDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 }
