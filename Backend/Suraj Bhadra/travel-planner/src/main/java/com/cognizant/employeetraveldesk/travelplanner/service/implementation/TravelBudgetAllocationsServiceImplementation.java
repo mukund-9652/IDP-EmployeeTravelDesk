@@ -1,0 +1,7 @@
+package com.cognizant.employeetraveldesk.travelplanner.service.implementation;
+
+import com.cognizant.employeetraveldesk.travelplanner.service.TravelBudgetAllocationsService;
+
+public class TravelBudgetAllocationsServiceImplementation implements TravelBudgetAllocationsService {
+
+}
