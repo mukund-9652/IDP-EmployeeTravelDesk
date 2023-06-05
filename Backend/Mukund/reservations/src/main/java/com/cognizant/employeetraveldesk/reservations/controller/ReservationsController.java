@@ -33,7 +33,7 @@ public class ReservationsController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Void> addReservatios(@RequestBody ReservationsDTO reservationsDTO){
+	public ResponseEntity<Void> addReservatios(@Validated @RequestBody ReservationsDTO reservationsDTO){
 		boolean requestStatusCheck = reservationsServiceImpl.addReservation(reservationsDTO);
 		if (requestStatusCheck) {
 			return ResponseEntity.status(HttpStatus.CREATED).build();

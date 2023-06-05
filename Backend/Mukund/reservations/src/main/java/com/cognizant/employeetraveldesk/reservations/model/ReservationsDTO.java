@@ -2,6 +2,12 @@ package com.cognizant.employeetraveldesk.reservations.model;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ReservationsDTO {
 
 	/**
@@ -33,14 +39,30 @@ public class ReservationsDTO {
 	}
 
 	private Integer id;
+	
+	@Min(value = 1, message = "Employee Id must be at least 1")
 	private int reservationDoneByEmployeeId;
+
+	@Min(value = 1, message = "Travel Request Id must be at least 1")
 	private int travelRequestId;
+	
 	private ReservationTypesDTO reservationTypesDTO;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate createdOn;
+	
+	@NotBlank(message = "Reservation Done With Entity cannot be null/empty")
+	@Size(min = 5, message = "Reservation Done With Entity must have more than 5 symbols")
 	private String reservationDoneWithEntity;
+	
 	private LocalDate ReservationDate;
+	
+	@Min(value = 100, message = "Amount must be at least Rs.100")
 	private int amount;
+	
+	@Size(min = 5, message = "Confirmation Id must have more than 5 symbols")
 	private String confirmationId;
+	
 	private String remarks;
 
 	/**
