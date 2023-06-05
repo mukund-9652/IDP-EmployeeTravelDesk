@@ -1,0 +1,2 @@
+2023-06-05 00:06:50.612  WARN 37632 --- [mydatabase housekeeper] com.zaxxer.hikari.pool.HikariPool        : mydatabase - Thread starvation or clock leap detected (housekeeper delta=4h25s26ms256µs500ns).
+2023-06-05 11:47:35.848  WARN 37632 --- [mydatabase housekeeper] com.zaxxer.hikari.pool.HikariPool        : mydatabase - Thread starvation or clock leap detected (housekeeper delta=11h40m47s713ms240µs800ns).

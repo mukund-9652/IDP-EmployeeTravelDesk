@@ -1,0 +1,23 @@
+<div class="mb-3">
+    <label for="employeeId" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="employeeId" [(ngModel)]="employeeId" name="employeeId">
+  </div>
+  <button class="btn btn-primary" (click)="searchEmployee()">Search</button>
+  <div *ngIf="employee">
+    <div class="mb-3">
+      <label for="currentGrade" class="form-label">Current Grade</label>
+      <input type="text" class="form-control" id="currentGrade" [value]="employee.currentGradeId.name" disabled>
+    </div>
+    <div class="mb-3">
+      <label for="newGrade" class="form-label">New Grade</label>
+      <label for="Grades" class="form-label">Grades</label>
+        <select class="form-select" [(ngModel)]="newGrade" name="newGrade">
+          <option selected disabled>Select Grades</option>
+          <option value="GRADE-1">Grade-1</option>
+          <option value="GRADE-2">Grade-2</option>
+          <option value="GRADE-3">Grade-3</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" (click)="updateGrade()">Update Grade</button>
+  </div>
+  

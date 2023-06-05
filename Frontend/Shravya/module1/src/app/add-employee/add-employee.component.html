@@ -1,0 +1,99 @@
+<div class="container">
+    <h3>Add new Employee</h3>
+  
+    <form (ngSubmit)="onSubmit()" class="needs-validation">
+      <div class="mb-3">
+        <label for="EmployeeId" class="form-label">Employee Id</label>
+        <input type="number" class="form-control" id="employeeId" required [(ngModel)]="user.employeeId" name="EmployeeId">
+  
+        <div class="invalid-feedback">
+          Employee Id is required.
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" required [(ngModel)]="user.firstName" name="FirstName">
+  
+            <div class="invalid-feedback">
+              First Name is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" required [(ngModel)]="user.lastName" name="LastName">
+  
+            <div class="invalid-feedback">
+              Last Name is required.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="PhoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="PhoneNumber" required [(ngModel)]="user.phoneNumber" name="PhoneNumber">
+  
+        <div class="invalid-feedback">
+          Phone Number is required.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="EmailAddress" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="EmailAddress" required [(ngModel)]="user.emailAddress" name="EmailAddress">
+  
+        <div class="invalid-feedback">
+          Email Address is required.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="Role" class="form-label">Role</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Role" id="HR" value="HR" [(ngModel)]="user.roles">
+          <label class="form-check-label" for="HR">
+            HR
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Role" id="TravelDeskExec" value="TravelDeskExe" [(ngModel)]="user.roles">
+          <label class="form-check-label" for="TravelDeskExe">
+            TravelDeskExec
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Role" id="Employee" value="Employee" [(ngModel)]="user.roles">
+          <label class="form-check-label" for="Employee">
+            Employee
+          </label>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="Grades" class="form-label">Grades</label>
+        <select class="form-select" [(ngModel)]="NameGrade" name="Grades">
+          <option selected disabled>Select Grades</option>
+          <option value=1>Grade-1</option>
+          <option value=2>Grade-2</option>
+          <option value=3>Grade-3</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="AccessGranted" class="form-label">Access Granted</label>
+        <select class="form-select" [(ngModel)]="user.accessGranted" name="AccessGranted">
+          <option selected disabled>Select Access</option>
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Add Employee</button>
+    </form>
+  </div>
+  
