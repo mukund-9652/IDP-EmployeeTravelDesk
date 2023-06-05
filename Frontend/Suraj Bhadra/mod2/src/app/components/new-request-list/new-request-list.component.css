@@ -1,0 +1,24 @@
+.container{
+    background-color: #e76565;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    height:90vh;
+}
+th{
+    padding:30px;
+    background-color: #eee;
+}
+td{
+    padding:10px;
+    background-color: #eee;
+}
+h2{
+    color: #eee;
+    margin-bottom: 20px;
+}
