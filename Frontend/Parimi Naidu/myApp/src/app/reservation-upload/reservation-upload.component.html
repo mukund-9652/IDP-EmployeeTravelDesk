@@ -1,0 +1,111 @@
+<!-- <h2>Upload Reservation</h2>
+
+<div *ngIf="!isFormSubmitted" class="mt-3">
+  <form (submit)="uploadReservation()" class="needs-validation" novalidate> -->
+    <!-- ...existing form fields... -->
+
+    <!-- <div class="form-group">
+      <label for="reservationType">Reservation Type:</label>
+      <select id="reservationType" class="form-control" required>
+        <option value="">Select Reservation Type</option>
+        <option value="Flight">Flight</option>
+        <option value="Hotel">Hotel</option>
+        <option value="Car Rental">Car Rental</option> -->
+        <!-- Add more options as needed -->
+      <!-- </select>
+      <div class="invalid-feedback">Please select a reservation type.</div>
+    </div> -->
+
+    <!-- ...existing button... -->
+    <!-- <button type="submit" class="btn btn-primary">Upload Reservation</button>
+  </form>
+</div> -->
+
+<!-- <div *ngIf="isFormSubmitted" class="mt-3">
+  <p>{{ acknowledgmentMessage }}</p>
+</div> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Reservation Form</h1>
+    <form id="reservationForm">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" placeholder="Enter ID" required>
+      </div>
+      <div class="form-group">
+        <label for="employeeId">Reservation Done By Employee ID</label>
+        <input type="text" class="form-control" id="employeeId" placeholder="Enter Employee ID" required>
+      </div>
+      <div class="form-group">
+        <label for="requestId">Travel Request ID</label>
+        <input type="text" class="form-control" id="requestId" placeholder="Enter Travel Request ID" required>
+      </div>
+      <div class="form-group">
+        <label for="createdOn">Created On</label>
+        <input type="date" class="form-control" id="createdOn" required>
+      </div>
+      <div class="form-group">
+        <label for="entity">Reservation Done With Entity</label>
+        <input type="text" class="form-control" id="entity" placeholder="Enter Reservation Entity" required>
+      </div>
+      <div class="form-group">
+        <label for="reservationDate">Reservation Date</label>
+        <input type="date" class="form-control" id="reservationDate" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" class="form-control" id="amount" placeholder="Enter Amount" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmationId">Confirmation ID</label>
+        <input type="text" class="form-control" id="confirmationId" placeholder="Enter Confirmation ID" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <!-- <button type="button" class="btn btn-secondary">Track</button> -->
+    </form>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById("reservationForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Check if the form is valid
+      if (this.checkValidity()) {
+        // Show acknowledgement message
+        var message = document.createElement("p");
+        message.textContent = "Your details have been submitted.";
+        message.classList.add("alert", "alert-success");
+
+        // Append message after the form
+        var form = document.getElementById("reservationForm");
+        form.parentNode.insertBefore(message, form.nextSibling);
+
+        // Clear form inputs
+        form.reset();
+      } else {
+        // Mark invalid fields as touched to trigger validation messages
+        var formInputs = this.querySelectorAll("input");
+        formInputs.forEach(function (input) {
+          if (!input.checkValidity()) {
+            input.classList.add("is-invalid");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
