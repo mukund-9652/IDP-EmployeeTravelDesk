@@ -1,6 +1,7 @@
 package com.cognizant.employeetraveldesk.reservations.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -16,9 +18,16 @@ import javax.persistence.Table;
 @Table(name = "reservations")
 public class Reservations {
 
-	public Reservations(Integer id, int reservationDoneByEmployeeId, int travelRequestId,
-			ReservationTypes reservationTypes, LocalDate createdOn, String reservationDoneWithEntity,
-			LocalDate reservationDate, int amount, String confirmationId, String remarks) {
+	public Reservations(Integer id, 
+			int reservationDoneByEmployeeId, 
+			int travelRequestId,
+			ReservationTypes reservationTypes, 
+			LocalDate createdOn, 
+			String reservationDoneWithEntity,
+			LocalDate reservationDate, 
+			int amount, 
+			String confirmationId, 
+			String remarks) {
 		super();
 		this.id = id;
 		this.reservationDoneByEmployeeId = reservationDoneByEmployeeId;
@@ -32,7 +41,10 @@ public class Reservations {
 		this.remarks = remarks;
 	}
 
-
+	public Reservations() {
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -60,18 +72,19 @@ public class Reservations {
 	@Column(name="amount")
 	private int amount;
 	
-	@Column(name="confirmationId")
+	@Column(name="confirmationid")
 	private String confirmationId;
 	
 	@Column(name="remarks")
 	private String remarks;
 	
+	@OneToMany(mappedBy="reservationid")
+	private List<ReservationDocs> reservationDocs;
 	
 	@PrePersist
     public void prePersist() {
         createdOn = LocalDate.now();
     }
-
 
 	/**
 	 * @return the id
@@ -235,7 +248,7 @@ public class Reservations {
 
 	@Override
 	public String toString() {
-		return "Reservations [id=" + id + ", reservationDoneByEmployeeId=" + reservationDoneByEmployeeId
+		return "ReservationsDTO [id=" + id + ", reservationDoneByEmployeeId=" + reservationDoneByEmployeeId
 				+ ", travelRequestId=" + travelRequestId + ", reservationTypes=" + reservationTypes + ", createdOn="
 				+ createdOn + ", reservationDoneWithEntity=" + reservationDoneWithEntity + ", ReservationDate="
 				+ ReservationDate + ", amount=" + amount + ", confirmationId=" + confirmationId + ", remarks=" + remarks

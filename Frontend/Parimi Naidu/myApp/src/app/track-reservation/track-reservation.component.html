@@ -15,24 +15,30 @@
     <!-- [(ngModel)]="time" -->
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search Track Reservation" [(ngModel)]="searchText">
+    <input type="text" class="form-control" placeholder="Search by reservation id" [(ngModel)]="searchText"  [ngModelOptions]="{ standalone: true }">
     <button class="btn btn-primary" (click)="searchReservation()">Search</button>
   </div>
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Search Travel Request ID" [(ngModel)]="searchText">
+  <!-- <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search Travel Request ID" [(ngModel)]="searchText"  [ngModelOptions]="{ standalone: true }">
     <div class="input-group-append">
-      <button class="btn btn-primary" type="button" (click)="searchReservation()">Search</button>
+      <button class="btn btn-primary" type="button" (click)="searchReservationByTravelRequestId()">Search</button>
     </div>
-  </div>
-  <div *ngIf="reservations.length > 0">
-    <h3>Reservations for Travel Request ID: {{ searchText }}</h3>
+  </div> -->
+  <!-- <div *ngIf="reservations.length > 0"> -->
+    <div>
+    <h3>Reservations for reservation ID: {{ searchText }}</h3>
     <div class="card-columns">
-      <div class="card" *ngFor="let reservation of reservations">
+      <!-- <div class="card" *ngFor="let reservation of reservations"> -->
+        <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ reservation.trackName }}</h5>
-          <p class="card-text">Date: {{ reservation.date }}</p>
-          <p class="card-text">Time: {{ reservation.time }}</p>
-          <button class="btn btn-primary" (click)="viewDetails(reservation.id)">View Details</button>
+          <h5 class="card-title">Id : {{ reservations.id }}  </h5>
+          <p class="card-text">Date: {{ reservations.reservationDate  }} </p>
+          
+         
+
+
+          <!-- <p class="card-text">Time: {{ reservations.time }}  </p> -->
+          <button class="btn btn-primary" (click)="viewDetails(reservations.id)">View Details</button>
         </div>
       </div>
     </div>

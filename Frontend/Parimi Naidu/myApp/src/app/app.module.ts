@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UploadReservationComponent } from './reservation-upload/reservation-upload.component';
 import { TrackReservationComponent } from './track-reservation/track-reservation.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

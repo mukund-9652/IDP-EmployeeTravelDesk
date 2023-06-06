@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ReservationTypes } from 'path/to/reservation-types.model';
-
+//import { ReservationTypes } from '../models/reservation-types.model';
+import { reservationTypes } from './reservationType';
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationTypesService {
-  private baseUrl = 'http://localhost:8080/types';
+  private baseUrl = 'http://localhost:8089/api/reservations/types';
 
   constructor(private http: HttpClient) { }
 
-  getAllReservationTypes(): Observable<ReservationTypes[]> {
-    return this.http.get<ReservationTypes[]>(this.baseUrl);
+  getReservationTypes(): Observable<reservationTypes[]> {
+    return this.http.get<reservationTypes[]>(this.baseUrl);
   }
 }

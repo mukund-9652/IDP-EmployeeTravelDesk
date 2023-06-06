@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ReservationService } from '../reservation.service';
 
 interface Reservation {
   id: number;
@@ -17,10 +18,11 @@ interface Reservation {
 export class ReservationDetailsComponent implements OnInit {
   reservation!: Reservation;
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(private ReservationService :ReservationService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const reservationId = +this.route.snapshot.params['id'];
+    
     this.reservation = {
       id: reservationId,
       trackName: 'NaN',
