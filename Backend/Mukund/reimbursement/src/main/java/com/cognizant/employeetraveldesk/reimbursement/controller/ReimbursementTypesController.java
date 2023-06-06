@@ -15,7 +15,7 @@ import com.cognizant.employeetraveldesk.reimbursement.service.implementation.Rei
 @Validated
 @RestController
 @RequestMapping("/api/reimbursements")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 public class ReimbursementTypesController {
 	@Autowired
 	ReimbursementTypesServiceImpl reimbursementTypesServiceImpl;
