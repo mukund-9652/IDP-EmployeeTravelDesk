@@ -70,35 +70,4 @@ public class TravelRequestServiceImplementation implements TravelRequestsService
 			throw new ResourceNotFoundException("Travel Request Id not found");
 		}
 	}
-	
-	private int calculateApprovedBudget(int employeeId, String priority) throws InvalidResourceException {
-		String grade="Grade-1";
-		int maximumDays=0;
-		int approvedBudget=0;
-		if(priority.equalsIgnoreCase("priority-1")) {
-			maximumDays=30;
-		}
-		else if(priority.equalsIgnoreCase("priority-2")) {
-			maximumDays=20;
-		}
-		else if(priority.equalsIgnoreCase("priority-3")) {
-			maximumDays=10;
-		}
-		else {
-			throw new InvalidResourceException("Priority can only be priority-1 or priority-2 or priority-3 ");
-		}
-		if(grade.equalsIgnoreCase("grade-1")) {
-			approvedBudget=10000*maximumDays;
-		}
-		else if(grade.equalsIgnoreCase("grade-2")) {
-			approvedBudget=12500*maximumDays;
-		}
-		else if(grade.equalsIgnoreCase("grade-3")) {
-			approvedBudget=15000*maximumDays;
-		}
-		else {
-			throw new InvalidResourceException("Priority can only be Grade-1 or Grade-2 or Grade-3 ");
-		}
-		return approvedBudget;
-	}
 }

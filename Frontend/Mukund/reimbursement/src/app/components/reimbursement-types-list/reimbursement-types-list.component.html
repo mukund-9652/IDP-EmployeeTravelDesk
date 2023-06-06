@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 class="h1 py-3">
+        Reimbursement Types
+    </h1>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tempTypes of reimbursementTypes" >
+            <th scope="row">{{ tempTypes.id }}</th>
+            <td>{{tempTypes.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
