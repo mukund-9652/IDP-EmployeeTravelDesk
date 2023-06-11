@@ -12,6 +12,14 @@ import { NewReimbursementComponent } from './components/reimbursement-requests/n
 import { NavbarComponent } from './components/page/navbar/navbar.component';
 import { ReimbursementRequestFormComponent } from './components/page/forms/reimbursement-request-form/reimbursement-request-form.component';
 import { FooterComponent } from './components/page/footer/footer.component';
+import { IndexComponent } from './components/page/index/index.component';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/page/login/login.component';
+import { ReimbursementRequestTableComponent } from './components/page/table/reimbursement-request-table/reimbursement-request-table.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { ResourceNotFoundComponent } from './components/page/resource-not-found/resource-not-found.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +29,19 @@ import { FooterComponent } from './components/page/footer/footer.component';
     NewReimbursementComponent,
     NavbarComponent,
     ReimbursementRequestFormComponent,
-    FooterComponent
+    FooterComponent,
+    IndexComponent,
+    LoginComponent,
+    ReimbursementRequestTableComponent,
+    EmployeeComponent,
+    ResourceNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ReimbursementTypesService],
   bootstrap: [AppComponent]

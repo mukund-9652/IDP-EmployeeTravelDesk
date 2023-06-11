@@ -8,19 +8,18 @@ import { ReimbursementTypesService } from 'src/app/services/reimbursement-types.
   styleUrls: ['./reimbursement-types-list.component.css']
 })
 export class ReimbursementTypesListComponent {
-
   reimbursementTypes: any[] = [];
-  constructor(private reimbursementService: ReimbursementTypesService){
+
+  constructor(private reimbursementService: ReimbursementTypesService) {
 
   }
-    ngOnInit():void{
-      this.listReimbursementTypes();
-    }
+  ngOnInit(): void {
+    this.listReimbursementTypes();
+  }
   listReimbursementTypes() {
     this.reimbursementService.getReimbursementTypesList().subscribe(
-      (types: any[]) => {  
+      (types: any[]) => {
         this.reimbursementTypes = types;
-        console.log(this.reimbursementTypes); // Verify if the data is populated correctly
       },
       (error) => {
         console.error('Error fetching reimbursement types:', error);

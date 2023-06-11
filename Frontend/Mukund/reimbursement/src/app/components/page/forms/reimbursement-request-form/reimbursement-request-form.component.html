@@ -1,1 +1,79 @@
-<p>reimbursement-request-form works!</p>
+<div>
+    <h3 class="text-center my-3">Add new Reimbursement request!</h3>
+    <form class="container my-4" #newReimbursementRequestForm="ngForm" (submit)="postRequest()">
+        <div class="mb-3">
+            <input type="number" id="travelRequestId" class="form-control no-spinners"
+                aria-describedby="travelRequestHelp" aria-errormessage="travelRequestError"
+                placeholder="Enter your Travel Request Id" name="travelRequestId" required
+                [(ngModel)]="reimbursementRequests.travelRequestId">
+            <div id="travelRequestHelp" class="form-text"></div>
+            <div id="travelRequestError" class="form-error"></div>
+        </div>
+        <div class="mb-3">
+            <input type="number" id="requestRaisedByEmployeeId" name="requestRaisedByEmployeeId"
+                [(ngModel)]="reimbursementRequests.requestRaisedByEmployeeId" class="form-control"
+                aria-describedby="requestRaisedByEmployeeIdHelp" aria-errormessage="requestRaisedByEmployeeIdError"
+                placeholder="Enter Your Employee Id" required>
+            <div id="travelRequestHelp" class="form-text"></div>
+            <div id="travelRequestError" class="form-error"></div>
+        </div>
+        <div class="mb-3">
+            <div *ngIf="reimbursementTypes.length > 0; else emptyArray">
+                <!-- Content to be displayed when the array has elements -->
+                <select class="form-select" aria-label="Select Reimbursement Type" name="reimburesmentType" (change)="onOptionSelected($event)"
+                    [(ngModel)]="selectedReimbursementOption">
+                    <option value="" disabled selected>Select a Reimburesment Type</option>
+                    <option *ngFor="let tempTypes of reimbursementTypes" [value]="tempTypes.id">{{ tempTypes.type }}
+                    </option>
+                </select>
+            </div>
+
+            <ng-template #emptyArray>
+                <!-- Content to be displayed when the array is empty -->
+                <div id="reimbursementTypeError" class="form-error text-danger">No Data Recieved from Backend!!</div>
+                <div id="reimbursementTypeHelp" class="form-text">Run your backend server in your springboot
+                    application. If its running then check your database for the required data!</div>
+            </ng-template>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" id="invoiceNo" class="form-control" aria-describedby="invoiceNoHelp"
+                aria-errormessage="invoiceNoError" placeholder="Enter The Invoice No" name="invoiceNo" required [(ngModel)]="reimbursementRequests.invoiceNo">
+            <div id="invoiceNotHelp" class="form-text"></div>
+            <div id="invoiceNoError" class="form-error"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="requestDate" class="label">Enter the Invoice Date</label>
+            <input type="date" name="requestDate" id="requestDate" class="form-control"
+                aria-describedby="requestDateHelp" aria-errormessage="requestDateError"
+                placeholder="Pick the request date" required>
+            <div id="travelRequestHelp" class="form-text"></div>
+            <div id="travelRequestError" class="form-error"></div>
+        </div>
+
+        <div class="mb-3">
+            <input type="number" id="invoiceAmount" class="form-control" aria-describedby="invoiceAmountHelp"
+                aria-errormessage="invoiceAmountError" placeholder="Enter Your Invoice Amount" required>
+            <div id="invoiceAmountHelp" class="form-text"></div>
+            <div id="invoiceAmountError" class="form-error"></div>
+        </div>
+
+        <div class="mb-3">
+            <input type="url" id="documentUrl" class="form-control" aria-describedby="documentUrlHelp"
+                aria-errormessage="documentUrlError" placeholder="Enter Your Invoice Document Url" required>
+            <div id="documentUrlHelp" class="form-text">Kindly Store the document in your drive and share the link here.
+            </div>
+            <div id="documentUrlError" class="form-error"></div>
+        </div>
+
+        <div *ngIf="reimbursementTypes.length > 0; else emptyButton">
+            <!-- Content to be displayed when the array has elements -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <ng-template #emptyButton>
+            <!-- Content to be displayed when the array is empty -->
+            <button type="submit" class="btn btn-danger disabled ">Submit</button>
+        </ng-template>
+    </form>
+</div>
