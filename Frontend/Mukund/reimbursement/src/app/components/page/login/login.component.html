@@ -1,0 +1,15 @@
+<div class="login-form m-5">
+    <form [formGroup]="login" (submit)="handleSubmit()">
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" formControlName="emailId" id="inputEmail"
+                aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="InputPassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

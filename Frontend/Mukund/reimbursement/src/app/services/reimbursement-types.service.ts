@@ -13,7 +13,6 @@ export class ReimbursementTypesService {
   constructor(private httpClient :HttpClient) {}
 
   getReimbursementTypesList(): Observable<ReimbursementTypes[]>{
-    console.log(this.httpClient.get('http://localhost:8084/api/reimbursements/types'));
       return this.httpClient.get<ReimbursementTypes[]>(this.baseUrl);
 
   }

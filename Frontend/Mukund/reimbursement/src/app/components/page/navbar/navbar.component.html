@@ -1,29 +1,45 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        <a class="navbar-brand" routerLink="/Home">Reimbursement</a>
+        <button class="navbar-toggler" type="button"  (click)="toggleNavbar()"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Reimbursement</a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarToggler"  [class.show]="isNavbarOpen">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="hasLoggedIn">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/AddNewRequest" >Add Request</a>
+                    <a class="nav-link" routerLink="/Employee/AddNewRequest">Add Request</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/ViewReimbursementRequests" >View Requests</a>
+                    <a class="nav-link" routerLink="/Employee/ViewReimbursementRequests">View Requests</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/ViewReimbursementTypes" >View Types</a>
+                    <a class="nav-link" routerLink="/Employee/ViewReimbursementTypes">View Types</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/ProcessRequests" >Process Requests</a>
+                    <a class="nav-link" routerLink="/Employee/ProcessRequests">Process Requests</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class="d-flex"  *ngIf="!hasLoggedIn">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a routerLink="/Login" class="nav-link ">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/Login" class="nav-link ">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex"  *ngIf="hasLoggedIn">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" (click)="logout()">
+                    <li class="nav-item">
+                        <a routerLink="/Login" class="nav-link ">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/Login" class="nav-link ">View Profile</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
