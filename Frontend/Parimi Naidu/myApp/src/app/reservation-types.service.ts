@@ -15,3 +15,5 @@ export class ReservationTypesService {
     return this.http.get<reservationTypes[]>(this.baseUrl);
   }
 }
+
+

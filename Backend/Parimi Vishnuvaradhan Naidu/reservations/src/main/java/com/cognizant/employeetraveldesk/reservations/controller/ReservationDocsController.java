@@ -25,7 +25,8 @@ import com.cognizant.employeetraveldesk.reservations.service.implementation.Rese
 public class ReservationDocsController {
 	@Autowired
 	ReservationDocsServiceImpl reservationDocsServiceImpl;
-
+	
+	@CrossOrigin(origins ="http://localhost:4200")
 	@GetMapping("/{reservationid}/download")
 	public ResponseEntity<Resource> getDocumentUrlById(@PathVariable int reservationid) {
 		ReservationDocsDTO reservationDocsDTO = reservationDocsServiceImpl.getReservationDocsById(reservationid);
