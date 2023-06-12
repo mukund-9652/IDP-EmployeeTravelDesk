@@ -25,15 +25,19 @@ public class ReservationsController {
 	@Autowired
 	ReservationsServiceImpl reservationsServiceImpl;
 	
+	@CrossOrigin(origins ="http://localhost:4200")
 	@GetMapping("/track/{travelRequestId}")
 	public List<ReservationsDTO> getReservationsByTravelRequestId(@PathVariable int travelRequestId){
 		return reservationsServiceImpl.getAllReservationsByTravelRequestId(travelRequestId);
 	}
+	
+	@CrossOrigin(origins ="http://localhost:4200")
 	@GetMapping("/{reservationId}")
 	public ReservationsDTO getReservationsById(@PathVariable int reservationId){
 		return reservationsServiceImpl.getReservationById(reservationId);
 	}
 	
+	@CrossOrigin(origins ="http://localhost:4200")
 	@PostMapping("/add")
 	public ResponseEntity<Void> addReservatios(@Validated @RequestBody ReservationsDTO reservationsDTO){
 		boolean requestStatusCheck = reservationsServiceImpl.addReservation(reservationsDTO);

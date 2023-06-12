@@ -36,7 +36,7 @@ public class ReservationsServiceImpl implements ReservationsService {
 		if(checkReservation.isPresent()) {
 			throw new DuplicateResourceException("Data already found for id "+reservationsDTO.getId()+". So try with new ID.");
 		}
-		if(!checkReservationDateFromTravelPlanner(reservationsDTO.getReservationDate(), reservationsDTO.getReservationTypesDTO().getTypeName())) {
+		if(!checkReservationDateFromTravelPlanner(reservationsDTO.getReservationDate(), reservationsDTO.getReservationTypes().getTypeName())) {
 			return false;
 		}
 		reservationsRepository.save(modelMapper.reservationsDTOToEntity(reservationsDTO));

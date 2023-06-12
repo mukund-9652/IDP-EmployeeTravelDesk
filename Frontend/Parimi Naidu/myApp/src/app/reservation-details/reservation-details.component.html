@@ -1,9 +1,75 @@
-<div *ngIf="reservation">
-    <h3>Reservation Details</h3>
-    <p><strong>Reservation ID:</strong> {{ reservation.id }}</p>
-    <p><strong>Track Name:</strong> {{ reservation.trackName }}</p>
-    <p><strong>Date:</strong> {{ reservation.date }}</p>
-    <p><strong>Time:</strong> {{ reservation.time }}</p>
-    <button class="btn btn-primary" (click)="downloadReservation()">Download</button>
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Reservation Details</h1>
+    <div>
+      <p><strong>ID:</strong> <span id="id">{{ reservationDetails.id  }}</span></p>
+      <p><strong>Travel Request ID:</strong> <span id="travelRequestId">{{ reservationDetails.travelRequestId }}</span></p>
+      <p><strong>Reservation Done By EmployeeId:</strong> <span id="reservationDoneByEmployeeId">{{ reservationDetails.reservationDoneByEmployeeId }}</span></p>
+      <p><strong>reservation DoneWith Entity:</strong> <span id="reservationDoneWithEntity">{{ reservationDetails.reservationDoneWithEntity }}</span></p>
+      <p><strong>Reservation Date:</strong> <span id="reservationDate">{{ reservationDetails.reservationDate }}</span></p>
+      <p><strong>Confirmation ID:</strong> <span id="confirmationId">{{ reservationDetails.confirmationId }}</span></p>
+     
+    </div>
+    <div>
+      <!-- <button class="btn btn-primary" id="downloadBtn">Download Details</button> -->
+    </div>
   </div>
-  
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Retrieve the details from the URL query parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
+    var reservationDate = urlParams.get('reservationDate');
+    var confirmationId = urlParams.get('confirmationId');
+    var travelRequestId = urlParams.get('travelRequestId');
+
+    // Set the details on the page
+    document.getElementById('id').textContent = id;
+    document.getElementById('reservationDate').textContent = reservationDate;
+    document.getElementById('confirmationId').textContent = confirmationId;
+    document.getElementById('travelRequestId').textContent = travelRequestId;
+
+    // Add event listener to the download button
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      // Create a data string to be downloaded
+      var dataString = "ID: " + id + "\n" +
+        "Reservation Date: " + reservationDate + "\n" +
+        "Confirmation ID: " + confirmationId + "\n" +
+        "Travel Request ID: " + travelRequestId;
+
+      // Create a Blob from the data string
+      var blob = new Blob([dataString], { type: "text/plain" });
+
+      // Create a temporary URL for the Blob
+      var tempUrl = window.URL.createObjectURL(blob);
+
+      // Create a temporary link element
+      var link = document.createElement("a");
+      link.href = tempUrl;
+      link.download = "reservation-details.txt";
+
+      // Simulate a click on the link to start the download
+      link.click();
+
+      // Cleanup
+      setTimeout(function () {
+        window.URL.revokeObjectURL(tempUrl);
+        link.remove();
+      }, 0);
+    });
+  </script>
+</body>
+
+</html>

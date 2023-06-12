@@ -45,7 +45,7 @@ public class ModelMapper {
 				reservationsDTO.getId(),
 				reservationsDTO.getReservationDoneByEmployeeId(),
 				reservationsDTO.getTravelRequestId(),
-				this.reservationTypesDTOToEntity(reservationsDTO.getReservationTypesDTO()),
+				this.reservationTypesDTOToEntity(reservationsDTO.getReservationTypes()),
 				reservationsDTO.getCreatedOn(),
 				reservationsDTO.getReservationDoneWithEntity(),
 				reservationsDTO.getReservationDate(),
