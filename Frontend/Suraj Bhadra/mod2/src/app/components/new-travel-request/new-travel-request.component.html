@@ -48,17 +48,17 @@
         </label>
       </div>
   
-      <div class="formStyle-inside"> 
+      <!-- <div class="formStyle-inside"> 
         <label for="hrId">HR ID: </label>
         <input type="text" id="hrId" name="hrId" [(ngModel)]="travelRequest.hrId">
-      </div>
+      </div> -->
   
       <button class="buttonCl" type="submit">Submit</button>
     </form>
   
-    <div class="formStyle-inside" *ngIf="submitted">
+    <div *ngIf="submitted">
       <p>Travel request submitted successfully!</p>
-      <p>Travel Request ID: {{ generatedRequestId }}</p>
+      <!-- <p>Travel Request ID: {{ generatedRequestId }}</p> -->
     </div>
   </div>
   
