@@ -9,9 +9,11 @@ import { LoginService } from 'src/app/services/login.service';
 export class NavbarComponent {
   isNavbarOpen = false;
   hasLoggedIn = false;
+  isExecutive=false;
   private loginService!: LoginService;
   constructor(){
     this.loginService = inject(LoginService);
+    this.isExecutive=this.loginService.isAdmin();
   }
   ngOnInit() {
     if (this.loginService.isLoggedInUser()) {
