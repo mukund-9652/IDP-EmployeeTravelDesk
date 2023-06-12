@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { ReimbursementTypesService } from 'src/app/services/reimbursement-types.service';
 import { ReimbursementRequests } from 'src/app/common/reimbursement-requests';
 import { ReimbursementRequestsService } from 'src/app/services/reimbursement-requests.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-reimbursement-request-form',
   templateUrl: './reimbursement-request-form.component.html',
@@ -11,10 +12,11 @@ import { NgForm } from '@angular/forms';
 })
 export class ReimbursementRequestFormComponent {
   reimbursementTypes: any[] = [];
-  isExecutive: boolean = true;
+  isExecutive: boolean = false;
   today: Date = new Date();
   randomInt: number = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
   pageType: string = 'Add new';
+  private loginService!: LoginService;
   reimbursementRequests: any = {
     documentURL: '',
     id: this.randomInt,
@@ -33,7 +35,7 @@ export class ReimbursementRequestFormComponent {
 
 
   constructor(private reimbursementTypesService: ReimbursementTypesService, private reimbursementService: ReimbursementRequestsService, private router: Router) {
-
+    this.loginService=inject(LoginService);
   }
 
   selectedReimbursementOption: string = '';
@@ -44,7 +46,9 @@ export class ReimbursementRequestFormComponent {
 
   ngOnInit(): void {
     //console.log(this.reimbursementRequests);
-
+    if(this.loginService.isAdmin()){
+      this.isExecutive=true;
+    }
     if (this.router.url.includes('Process')) {
       this.pageType='Process '
       this.isDisabled = true;

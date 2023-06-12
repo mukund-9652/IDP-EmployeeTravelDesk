@@ -7,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler"  [class.show]="isNavbarOpen">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="hasLoggedIn">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!isExecutive">
                     <a class="nav-link" routerLink="/Employee/AddNewRequest">Add Request</a>
                 </li>
                 <li class="nav-item">
@@ -16,7 +16,7 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/Employee/ViewReimbursementTypes">View Types</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"  *ngIf="isExecutive">
                     <a class="nav-link" routerLink="/Employee/ProcessRequests">Process Requests</a>
                 </li>
             </ul>
