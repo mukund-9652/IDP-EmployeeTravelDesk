@@ -12,7 +12,7 @@ export class NewTravelRequestComponent {
     location: '',
     purpose: '',
     priority: '',
-    hrId: 'HR123' // Replace 'HR123' with your logic to auto-populate HR ID
+    hrId: '555442' // Replace 'HR123' with your logic to auto-populate HR ID
   };
 
   submitted: boolean = false;
@@ -25,7 +25,7 @@ export class NewTravelRequestComponent {
     }
 
     // Assuming you have some logic to generate the travel request ID
-    this.generatedRequestId = 'TRID123'; // Replace 'TRID123' with your logic to generate the ID
+    //this.generatedRequestId = ''; 
 
     this.submitted = true;
   }
