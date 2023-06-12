@@ -1,47 +1,175 @@
-<form (ngSubmit)="reserveTrack()" class="mt-3">
-  <div class="form-group">
-    <label for="trackName">Track Name:</label>
-    <input type="text" id="trackName" class="form-control" required>
-    <!-- [(ngModel)]="trackName" -->
-  </div>
-  <div class="form-group">
-    <label for="date">Date:</label>
-    <input type="date" id="date" class="form-control" required>
-    <!-- [(ngModel)]="date" -->
-  </div>
-  <div class="form-group">
-    <label for="time">Time:</label>
-    <input type="time" id="time" class="form-control" required>
-    <!-- [(ngModel)]="time" -->
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search by reservation id" [(ngModel)]="searchText"  [ngModelOptions]="{ standalone: true }">
-    <button class="btn btn-primary" (click)="searchReservation()">Search</button>
-  </div>
-  <!-- <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Search Travel Request ID" [(ngModel)]="searchText"  [ngModelOptions]="{ standalone: true }">
-    <div class="input-group-append">
-      <button class="btn btn-primary" type="button" (click)="searchReservationByTravelRequestId()">Search</button>
-    </div>
-  </div> -->
-  <!-- <div *ngIf="reservations.length > 0"> -->
-    <div>
-    <h3>Reservations for reservation ID: {{ searchText }}</h3>
-    <div class="card-columns">
-      <!-- <div class="card" *ngFor="let reservation of reservations"> -->
-        <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Id : {{ reservations.id }}  </h5>
-          <p class="card-text">Date: {{ reservations.reservationDate  }} </p>
-          
-         
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .is-invalid {
+      border: 1px solid red;
+    }
+  </style>
+</head>
 
-          <!-- <p class="card-text">Time: {{ reservations.time }}  </p> -->
-          <button class="btn btn-primary" (click)="viewDetails(reservations.id)">View Details</button>
+<body>
+  <div class="container">
+    <h1>Reservation Form</h1>
+    <form id="reservationForm" novalidate>
+      <!-- <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" placeholder="Enter ID" required>
+      </div>
+      <div class="form-group">
+        <label for="reservationDate">Reservation Date</label>
+        <input type="date" class="form-control" id="reservationDate" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmationId">Confirmation ID</label>
+        <input type="text" class="form-control" id="confirmationId" placeholder="Enter Confirmation ID" required>
+      </div> -->
+      <div class="form-group">
+        <label for="travelRequestId">Travel Request ID</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="travelRequestId" name="travelRequestId" [(ngModel)]="travelRequestId" placeholder="Enter Travel Request ID" required>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="viewDetailsBtn" (click)="searchReservationByTravelRequestId()" >Get Reservations</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-  <button type="submit" class="btn btn-primary mt-3">Reserve Track</button>
-</form>
+
+   <div class="container my-5">
+    <div id="accordion">
+        <div class="card"  *ngFor="let r of reservations;index as ind;">
+            <div class="card-header row m-0" id="heading-{{ind}}">
+                <div class="col">
+                    <a class="mb-0" data-bs-toggle="collapse" href="#collapse-{{ind}}" aria-expanded="true">
+                        <button class="btn btn-link text-decoration-none">
+                            {{ r.id }}
+                        </button>
+                    </a>
+                </div>
+                <div class="col col-lg-2">
+                    <a data-bs-toggle="modal">
+                        <button type="button" class="btn btn-primary"
+                            (click)="viewDetails(r.id)">View Details</button>
+                    </a>
+                </div>
+            </div>
+
+            <div id="collapse-{{ind}}" class="collapse multi-collapse" data-bs-parent="#accordion">
+                <div class="card-body">
+                    <div class="container my-5">
+                        <form>
+                            <div class="form-row">
+                                <div class="my-5 bg-light px-5 py-2 rounded">
+                                    <div class="form-group row my-4">
+                                        <div class="form-group col-md-6">
+                                            <label for="reservationDoneByEmployeeId" class="col-form-label">
+                                              reservationDoneByEmployeeId
+                                            </label>
+                                            <input type="text" name="reservationDoneByEmployeeId" id="reservationDoneByEmployeeId"
+                                                class="form-control" placeholder="{{ r.reservationDoneByEmployeeId }}" readonly>
+                                        </div>
+                                        
+                                    </div>
+
+                                    
+                                    
+                                </div>
+
+                                <div class="my-5 bg-light px-5 py-2 rounded">
+                                    <div class="form-group row my-4">
+                                        <div class="form-group col-md-6">
+                                            <label for="travelRequestId" class="col-form-label"> travelRequestId
+                                              </label>
+                                            <input type="text" name="travelRequestId" id="travelRequestId"
+                                                class="form-control"
+                                                placeholder="{{ r.travelRequestId }}" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="reservationDoneWithEntity" class="col-form-label">reservationDoneWithEntity</label>
+                                            <input type="text" name="reservationDoneWithEntity" id="reservationDoneWithEntity" class="form-control"
+                                                placeholder="{{ r.reservationDoneWithEntity }}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row my-4">
+                                        <div class="form-group col-md-6">
+                                            <label for="reservationDate" class="col-form-label">reservationDate</label>
+                                            <input type="datetime" name="reservationDate" id="reservationDate"
+                                                class="form-control"
+                                                value="{{r.reservationDate}}" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="confirmationId" class="col-form-label">confirmationId
+                                                </label>
+                                            <input type="datetime" name="confirmationId" id="confirmationId"
+                                                class="form-control"
+                                                value="{{r.confirmationId}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                                  
+
+    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+              </div> 
+
+
+        </div>
+    </div>
+</div>
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById("travelRequestId").addEventListener("input", function () {
+      var viewDetailsBtn = document.getElementById("viewDetailsBtn");
+      if (this.value.trim() !== "") {
+        viewDetailsBtn.disabled = false;
+      } else {
+        viewDetailsBtn.disabled = true;
+      }
+    });
+
+    document.getElementById("reservationForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Check if the form is valid
+      if (this.checkValidity()) {
+        // Form is valid, you can perform additional actions here
+
+        // Show acknowledgement message
+        var message = document.createElement("p");
+        message.textContent = "Your details have been submitted.";
+        message.classList.add("alert", "alert-success");
+
+        // Append message after the form
+        var form = document.getElementById("reservationForm");
+        form.parentNode.insertBefore(message, form.nextSibling);
+
+        // Clear form inputs
+        form.reset();
+      } else {
+        // Mark invalid fields as touched to trigger validation messages
+        var formInputs = this.querySelectorAll("input");
+        formInputs.forEach(function (input) {
+          if (!input.checkValidity()) {
+            input.classList.add("is-invalid");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

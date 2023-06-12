@@ -6,7 +6,10 @@ interface Reservation {
   id: number;
 reservationDoneByEmployeeId: number;
 travelRequestId: number;
-reservationTypes: string;
+reservationTypesDTO: {
+  typeId:number,
+  typeName:string
+};
 createdOn: Date;
 reservationDoneWithEntity: string;
 reservationDate: Date;
@@ -22,34 +25,37 @@ remarks: string;
 })
 export class TrackReservationComponent {
 
-  trackName: string = '';
-  // id: number;
-  date: string = '';
-  time: string = '';
-  searchTrack:string = '';
-  searchText: string = '';
-  reservations!: Reservation;
+  // trackName: string = '';
+  // // id: number;
+  // date: string = '';
+  // time: string = '';
+  // searchTrack:string = '';
+  // searchText: string = '';
+
+  travelRequestId!:number;
+  reservations!: Reservation[];
 
   constructor(private router: Router, private reservationService: ReservationService) { }
 
-  reserveTrack() {
-    // Implement your logic here to reserve the track
-    console.log('Track reserved:', this.trackName);
-    console.log('Date:', this.date);
-    console.log('Time:', this.time);
+  // reserveTrack() {
+  //   // Implement your logic here to reserve the track
+  //   console.log('Track reserved:', this.trackName);
+  //   console.log('Date:', this.date);
+  //   console.log('Time:', this.time);
 
-    // You can make API calls or perform other actions as needed
-    // For simplicity, I'm just logging the values to the console
-  }
+  //   // You can make API calls or perform other actions as needed
+  //   // For simplicity, I'm just logging the values to the console
+  // }
 
   searchReservation(){
 
   }
 
   searchReservationByTravelRequestId() {
-    this.reservationService.getReservationById(Number(this.searchText)).subscribe(
-      (res: any) => this.reservations = res
+    this.reservationService.getReservationsByTravelRequestId(this.travelRequestId).subscribe(
+      (res: any[]) => this.reservations = res
     );
+
 
     // Implement your logic here to search for track reservations based on the searchText
     // console.log('Searching track reservations:', this.searchText);
@@ -66,5 +72,6 @@ export class TrackReservationComponent {
   viewDetails(reservationId: number) {
     // Navigate to the ReservationDetailsComponent with the reservation ID
     this.router.navigate(['/reservation-details', reservationId]);
+
   }
 }

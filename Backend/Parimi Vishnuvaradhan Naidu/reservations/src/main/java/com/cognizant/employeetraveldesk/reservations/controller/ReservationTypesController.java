@@ -21,6 +21,7 @@ public class ReservationTypesController {
 	@Autowired
 	ReservationTypesServiceImpl reservationTypesServiceImpl;
 	
+	@CrossOrigin(origins ="http://localhost:4200")
 	@GetMapping("/types")
 	public List<ReservationTypesDTO> getReservationTypes(){
 		return reservationTypesServiceImpl.getReservationTypes();

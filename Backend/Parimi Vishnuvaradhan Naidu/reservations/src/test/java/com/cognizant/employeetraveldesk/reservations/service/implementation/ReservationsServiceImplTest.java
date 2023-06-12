@@ -1,10 +1,7 @@
 package com.cognizant.employeetraveldesk.reservations.service.implementation;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -25,12 +22,11 @@ import com.cognizant.employeetraveldesk.reservations.entity.Reservations;
 import com.cognizant.employeetraveldesk.reservations.exception.DuplicateResourceException;
 import com.cognizant.employeetraveldesk.reservations.exception.InvalidResourceException;
 import com.cognizant.employeetraveldesk.reservations.exception.ResourceNotFoundException;
-import com.cognizant.employeetraveldesk.reservations.model.ReservationsDTO;
 import com.cognizant.employeetraveldesk.reservations.model.ReservationTypesDTO;
+import com.cognizant.employeetraveldesk.reservations.model.ReservationsDTO;
 import com.cognizant.employeetraveldesk.reservations.model.mapper.ListModelMapper;
 import com.cognizant.employeetraveldesk.reservations.model.mapper.ModelMapper;
 import com.cognizant.employeetraveldesk.reservations.repository.ReservationsRepository;
-import com.cognizant.employeetraveldesk.reservations.service.implementation.ReservationsServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ReservationsServiceImplTest {
@@ -57,7 +53,8 @@ public class ReservationsServiceImplTest {
         // Arrange
         ReservationsDTO reservationsDTO = new ReservationsDTO(null, 0, 0, null, null, null, null, 0, null, null);
         reservationsDTO.setId(1);
-        reservationsDTO.setReservationDate(LocalDate.now());
+        
+        reservationsDTO.setReservationDate(LocalDate.now().minusDays(0));
         ReservationTypesDTO reservationTypesDTO = new ReservationTypesDTO(null, null);
         reservationTypesDTO.setTypeName("train");
         reservationsDTO.setReservationTypesDTO(reservationTypesDTO);

@@ -23,13 +23,13 @@ public class ReservationsDTO {
 	 * @param remarks
 	 */
 	public ReservationsDTO(Integer id, int reservationDoneByEmployeeId, int travelRequestId,
-			ReservationTypesDTO reservationTypesDTO, LocalDate createdOn, String reservationDoneWithEntity,
+			ReservationTypesDTO reservationTypes, LocalDate createdOn, String reservationDoneWithEntity,
 			LocalDate reservationDate, int amount, String confirmationId, String remarks) {
 		super();
 		this.id = id;
 		this.reservationDoneByEmployeeId = reservationDoneByEmployeeId;
 		this.travelRequestId = travelRequestId;
-		this.reservationTypesDTO = reservationTypesDTO;
+		this.reservationTypes = reservationTypes;
 		this.createdOn = createdOn;
 		this.reservationDoneWithEntity = reservationDoneWithEntity;
 		ReservationDate = reservationDate;
@@ -46,7 +46,7 @@ public class ReservationsDTO {
 	@Min(value = 1, message = "Travel Request Id must be at least 1")
 	private int travelRequestId;
 	
-	private ReservationTypesDTO reservationTypesDTO;
+	private ReservationTypesDTO reservationTypes;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate createdOn;
@@ -89,8 +89,8 @@ public class ReservationsDTO {
 	/**
 	 * @return the reservationTypesDTO
 	 */
-	public ReservationTypesDTO getReservationTypesDTO() {
-		return reservationTypesDTO;
+	public ReservationTypesDTO getReservationTypes() {
+		return reservationTypes;
 	}
 
 	/**
@@ -159,8 +159,8 @@ public class ReservationsDTO {
 	/**
 	 * @param reservationTypesDTO the reservationTypesDTO to set
 	 */
-	public void setReservationTypesDTO(ReservationTypesDTO reservationTypesDTO) {
-		this.reservationTypesDTO = reservationTypesDTO;
+	public void setReservationTypesDTO(ReservationTypesDTO reservationTypes) {
+		this.reservationTypes = reservationTypes;
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class ReservationsDTO {
 	@Override
 	public String toString() {
 		return "ReservationsDTO [id=" + id + ", reservationDoneByEmployeeId=" + reservationDoneByEmployeeId
-				+ ", travelRequestId=" + travelRequestId + ", reservationTypesDTO=" + reservationTypesDTO
+				+ ", travelRequestId=" + travelRequestId + ", reservationTypes=" + reservationTypes
 				+ ", createdOn=" + createdOn + ", reservationDoneWithEntity=" + reservationDoneWithEntity
 				+ ", ReservationDate=" + ReservationDate + ", amount=" + amount + ", confirmationId=" + confirmationId
 				+ ", remarks=" + remarks + "]";
