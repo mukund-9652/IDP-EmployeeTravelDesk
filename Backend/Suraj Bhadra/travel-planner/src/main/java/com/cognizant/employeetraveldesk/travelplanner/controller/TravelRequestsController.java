@@ -17,62 +17,63 @@ import com.cognizant.employeetraveldesk.travelplanner.service.implementation.Tra
 
 @Validated
 @RestController
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/travelrequests")
 public class TravelRequestsController {
 
-	//inject an instance of the TravelRequestServiceImplementation class into the current class.
+	// inject an instance of the TravelRequestServiceImplementation class into the
+	// current class.
 	@Autowired
 	TravelRequestServiceImplementation travelRequestServiceImplementation;
 
-	//insert new travel request
+	// insert new travel request
+	@CrossOrigin("http://localhost:4200")
 	@PostMapping("/new")
-	public ResponseEntity<Integer> createTravelRequest(@RequestBody TravelRequestsDTO travelRequestDTO){
-		
-		int request=travelRequestServiceImplementation.createTravelRequest(travelRequestDTO);
-		if(request>0) {
-		return ResponseEntity.ok(request);
-		}
-		else {
+	public ResponseEntity<Integer> createTravelRequest(@RequestBody TravelRequestsDTO travelRequestDTO) {
+
+		int request = travelRequestServiceImplementation.createTravelRequest(travelRequestDTO);
+		if (request > 0) {
+			return ResponseEntity.ok(request);
+		} else {
 			return ResponseEntity.badRequest().build();
 		}
 	}
-	
-	//return all the pending requests using HR id
+
+	// return all the pending requests using HR id
+	@CrossOrigin("http://localhost:4200")
 	@GetMapping("/{HRid}/pending")
 	public TravelRequestsDTO retrieveTravelRequestByHRid(@PathVariable int HRid) {
-		TravelRequestsDTO resultDTO=travelRequestServiceImplementation.retrieveTravelRequestByHRid(HRid);
-		
-		if(resultDTO!=null) {
+		TravelRequestsDTO resultDTO = travelRequestServiceImplementation.retrieveTravelRequestByHRid(HRid);
+
+		if (resultDTO != null) {
 			return resultDTO;
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
-	//return a request using request id
+
+	// return a request using request id
+	@CrossOrigin("http://localhost:4200")
 	@GetMapping("/{trid}")
 	public TravelRequestsDTO retrieveTravelRequestId(@PathVariable int trid) {
-		TravelRequestsDTO resultDTO=travelRequestServiceImplementation.retrieveTravelRequestById(trid);
-		
-		if(resultDTO!=null) {
+		TravelRequestsDTO resultDTO = travelRequestServiceImplementation.retrieveTravelRequestById(trid);
+
+		if (resultDTO != null) {
 			return resultDTO;
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
-	//update a travel request
+
+	// update a travel request
+	@CrossOrigin("http://localhost:4200")
 	@PutMapping("/{trid}/update")
-	public ResponseEntity<String> updateTravelRequestById(@PathVariable int trid, @RequestBody TravelRequestsDTO travelRequestsDTO){
-		boolean result=travelRequestServiceImplementation.updateTravelRequestsById(trid, travelRequestsDTO);
-		
-		if(result) {
+	public ResponseEntity<String> updateTravelRequestById(@PathVariable int trid,
+			@RequestBody TravelRequestsDTO travelRequestsDTO) {
+		boolean result = travelRequestServiceImplementation.updateTravelRequestsById(trid, travelRequestsDTO);
+
+		if (result) {
 			return ResponseEntity.ok("Your travel request has been updated");
-		}
-		else {
+		} else {
 			return ResponseEntity.internalServerError().build();
 		}
 	}
