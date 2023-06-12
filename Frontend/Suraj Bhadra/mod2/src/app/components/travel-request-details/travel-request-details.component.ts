@@ -21,7 +21,7 @@ export class TravelRequestDetailsComponent implements OnInit {
 
   searchRequest(){
     // this.http.get(`localhost:8082/api/travelrequests/${this.travelRequestId}`).subscribe(
-      this.http.get("localhost:8082/api/travelrequests/"+this.travelRequestId).subscribe(
+      this.http.get("http://localhost:8082/api/travelrequests/"+this.travelRequestId).subscribe(
       (data)=>{
         this.travelRequest=data;
       }
