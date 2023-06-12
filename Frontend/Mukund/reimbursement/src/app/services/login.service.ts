@@ -20,6 +20,7 @@ export class LoginService {
     this.users.map((user)=>{
       if(user.emailId === newUser.emailId && user.password === newUser.password){
         this.isInUser=true;
+        console.log('here'); 
       }
     });
   }

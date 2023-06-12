@@ -6,7 +6,7 @@ export class ReimbursementRequests {
         travelRequestId: number,
         requestRaisedByEmployeeId: number,
         requestDate: Date,
-        reimbursementTypeId: ReimbursementTypes,
+        reimbursementTypes: ReimbursementTypes,
         invoiceNo: string,
         invoiceDate: Date,
         invoiceAmount: number,

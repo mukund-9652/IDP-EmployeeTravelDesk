@@ -18,6 +18,7 @@ import { LoginComponent } from './components/page/login/login.component';
 import { ReimbursementRequestTableComponent } from './components/page/table/reimbursement-request-table/reimbursement-request-table.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { ResourceNotFoundComponent } from './components/page/resource-not-found/resource-not-found.component';
+import { MessageComponent } from './components/page/Employee/message/message.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ResourceNotFoundComponent } from './components/page/resource-not-found/
     LoginComponent,
     ReimbursementRequestTableComponent,
     EmployeeComponent,
-    ResourceNotFoundComponent
+    ResourceNotFoundComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -55,13 +55,13 @@ public class ReimbursementRequestsServiceImpl implements ReimbursementRequestsSe
 		if (!this.checkTravelPlannerDate(reimbursementRequests.getInvoiceDate())) {
 			throw new InvalidResourceException("Invalid Invoice Date: " + reimbursementRequests.getInvoiceDate());
 		}
-
-		if (this.checkInvoiceAmount(reimbursementRequests)) {
+		else {
 			reimbursementRequestsRepository.save(reimbursementRequests);
 			return true;
 		}
-
-		return false;
+//		if (this.checkInvoiceAmount(reimbursementRequests)) {
+//			return true;
+//		}
 	}
 
 	@Override

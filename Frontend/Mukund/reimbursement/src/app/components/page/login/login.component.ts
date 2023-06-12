@@ -30,6 +30,7 @@ export class LoginComponent {
 
     this.checkStatus=this.loginService.isLoggedInUser();
 
+    console.log(this.checkStatus);
     if(this.checkStatus){
       this.router.navigate(['/Employee']);
     }
