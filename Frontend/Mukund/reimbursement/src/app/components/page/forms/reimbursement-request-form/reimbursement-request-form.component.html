@@ -1,32 +1,33 @@
 <div>
-    <h3 class="text-center my-3">{{ pageType }} Reimbursement request!</h3>
-    <form class="container my-4" #newReimbursementRequestForm="ngForm" (submit)="postRequest()">
+    <h3 class="text-center text-light my-3" *ngIf="displayForm">{{ pageType }} Reimbursement request!</h3>
+    <form class="container my-4" #newReimbursementRequestForm="ngForm" (submit)="postRequest()" *ngIf="displayForm">
         <div class="mb-3">
+            <label for="travelRequestId"  class="label text-light">Travel Request Id:</label>
             <input type="number" id="travelRequestId" class="travelRequestId form-control no-spinners"
                 aria-describedby="travelRequestHelp" aria-errormessage="travelRequestError"
                 placeholder="Enter your Travel Request Id" name="travelRequestId" required [disabled]="isDisabled"
                 [(ngModel)]="reimbursementRequests.travelRequestId">
-            <div id="travelRequestHelp" class="form-text"></div>
-            <div id="travelRequestError" class="form-error"></div>
+            <div id="travelRequestError" class="form-error text-danger">{{ errorForm.errorTravelRequestId }}</div>
         </div>
-        <div class="mb-3">
-            <input type="number" id="requestRaisedByEmployeeId" name="requestRaisedByEmployeeId"
+        <div class="mb-3" *ngIf="!isEmployee">
+            <label for="requestRaisedByEmployeeId"  class="label text-light">Request Raised by Employee Id</label>
+            <input type="number"  id="requestRaisedByEmployeeId" name="requestRaisedByEmployeeId"
                 [(ngModel)]="reimbursementRequests.requestRaisedByEmployeeId" class="form-control"
                 [disabled]="isDisabled" aria-describedby="requestRaisedByEmployeeIdHelp"
                 aria-errormessage="requestRaisedByEmployeeIdError" placeholder="Enter Your Employee Id" required>
             <div id="travelRequestHelp" class="form-text"></div>
-            <div id="travelRequestError" class="form-error"></div>
         </div>
         <div class="mb-3">
             <div *ngIf="reimbursementTypes.length > 0; else emptyArray">
                 <!-- Content to be displayed when the array has elements -->
-                <select class="form-select" aria-label="Select Reimbursement Type" [disabled]="isDisabled"
+                <select class="form-select" aria-label="Select Reimbursement Type" [disabled]="isDisabled" *ngIf="!isDisabled"
                     name="reimburesmentType" (change)="onOptionSelected($event)"
                     [(ngModel)]="selectedReimbursementOption">
                     <option value="" disabled selected>Select a Reimburesment Type</option>
                     <option *ngFor="let tempTypes of reimbursementTypes" [value]="tempTypes.id">{{ tempTypes.type }}
                     </option>
                 </select>
+
             </div>
 
             <ng-template #emptyArray>
@@ -35,65 +36,73 @@
                 <div id="reimbursementTypeHelp" class="form-text">Run your backend server in your springboot
                     application. If its running then check your database for the required data!</div>
             </ng-template>
+
+            <div id="reimburesmentTypeError" class="form-error text-danger">{{ errorForm.errorReimbursementType }}</div>
+
         </div>
 
         <div class="mb-3">
+            <label for="invoiceNo"  class="label text-light">Invoice Number</label>
             <input type="text" id="invoiceNo" class="form-control" aria-describedby="invoiceNoHelp"
                 [disabled]="isDisabled" aria-errormessage="invoiceNoError" placeholder="Enter The Invoice No"
                 name="invoiceNo" required [(ngModel)]="reimbursementRequests.invoiceNo">
             <div id="invoiceNotHelp" class="form-text"></div>
-            <div id="invoiceNoError" class="form-error"></div>
+            <div id="invoiceNoError" class="form-error text-danger">{{ errorForm.errorInvoiceNo }}</div>
         </div>
 
         <div class="mb-3">
-            <label for="invoiceDate" class="label">Enter the Invoice Date</label>
+            <label for="invoiceDate" class="label text-light">Invoice Date</label>
             <input type="date" name="invoiceDate" id="invoiceDate" class="form-control" [disabled]="isDisabled"
                 aria-describedby="invoiceDateHelp" aria-errormessage="invoiceDateError"
                 placeholder="Pick the request date" required [(ngModel)]="reimbursementRequests.invoiceDate">
             <div id="travelRequestHelp" class="form-text"></div>
-            <div id="travelRequestError" class="form-error"></div>
+            <div id="travelRequestError" class="form-error text-danger">{{ errorForm.errorInvoiceDate }}</div>
         </div>
 
         <div class="mb-3">
+            <label for="invoiceAmount"  class="label text-light">Invoice Amount</label>
             <input type="number" id="invoiceAmount" name="invoiceAmount" class="form-control" [disabled]="isDisabled"
                 aria-describedby="invoiceAmountHelp" aria-errormessage="invoiceAmountError"
                 placeholder="Enter Your Invoice Amount" required [(ngModel)]="reimbursementRequests.invoiceAmount">
             <div id="invoiceAmountHelp" class="form-text"></div>
-            <div id="invoiceAmountError" class="form-error"></div>
+            <div id="invoiceAmountError" class="form-error text-danger">{{errorForm.errorInvoiceAmount }}</div>
         </div>
 
         <div class="mb-3">
+            <label for="documentURL"  class="label text-light">Document URL</label>
             <input type="url" id="documentUrl" name="documentUrl" class="form-control" [disabled]="isDisabled"
                 aria-describedby="documentUrlHelp" aria-errormessage="documentUrlError"
                 placeholder="Enter Your Invoice Document Url" required [(ngModel)]="reimbursementRequests.documentURL">
             <div id="documentUrlHelp" class="form-text">Kindly Store the document in your drive and share the link here.
             </div>
-            <div id="documentUrlError" class="form-error"></div>
+            <div id="documentUrlError" class="form-error text-danger">{{ errorForm.errorDocumentUrl }}</div>
         </div>
 
-        <div *ngIf="isExecutive">
+        <div *ngIf="!isEmployee">
             <div class="mb-3">
+                <label for="invoiceNo"  class="label text-light mb-3">Approve / Reject the request!</label>
                 <div class="form-check">
                     <input class="form-check-input" [(ngModel)]="reimbursementRequests.status" value="Approved" type="radio" name="Approved"
                         name="Radio" id="Radio1" (change)="statusChange('Approved')" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <label class="form-check-label text-light" for="flexRadioDefault1">
                         Approved
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" [(ngModel)]="reimbursementRequests.status" value="Rejected" name="rejected"
                         type="radio" name="Radio" id="Radio2" (change)="statusChange('Rejected')">
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <label class="form-check-label text-light" for="flexRadioDefault2">
                         Rejected
                     </label>
                 </div>
+                <div id="remarksError" class="form-error text-danger">{{ errorForm.errorStatus }}</div>
             </div>
             <div class="mb-3">
                 <textarea id="remarks" name="remarks" class="form-control"
                     aria-describedby="remarksHelp" aria-errormessage="remarksError"
                     placeholder="Enter Your Remarks" required [(ngModel)]="reimbursementRequests.remarks"></textarea>
                 <div id="remarksHelp" class="form-text"></div>
-                <div id="remarksError" class="form-error"></div>
+                <div id="remarksError" class="form-error text-danger">{{ errorForm.errorRemarks }}</div>
             </div>
         </div>
 
@@ -106,6 +115,15 @@
             <button type="submit" class="btn btn-danger disabled ">Submit</button>
         </ng-template>
     </form>
-</div>
+    <div *ngIf="isSuccess" class="m-3">
+        <div class="alert alert-success" role="alert">
+            Request Has been Successfully Sent!!!
+        </div>
+    </div>
 
-<router-outlet></router-outlet>
+    <div *ngIf="isFailed" class="m-3">
+        <div class="alert alert-error" role="alert">
+            
+        </div>
+    </div>
+</div>

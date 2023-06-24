@@ -43,6 +43,12 @@ public class ReimbursementRequestsController {
 		// This Returns the reimbursement request DTO for the given reimbursement id
 		return reimbursementRequestsServiceImpl.readRequestByReimbursementId(reimbursementid);
 	}
+	
+	@GetMapping("/id:{employeeid}")
+	public List<ReimbursementRequestsDTO> getReimbursementRequestsByEmployeeId(@PathVariable Integer employeeid) {
+		// This Returns the reimbursement request DTO for the given reimbursement id
+		return reimbursementRequestsServiceImpl.readRequestByEmployeeId(employeeid);
+	}
 
 	@PostMapping("/add")
 	public ResponseEntity<Void> createReimbursement(@Valid @RequestBody ReimbursementRequestsDTO request) throws DuplicateResourceException, InvalidResourceException {

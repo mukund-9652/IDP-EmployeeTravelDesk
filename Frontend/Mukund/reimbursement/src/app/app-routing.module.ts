@@ -23,10 +23,8 @@ const routes: Routes = [
     children: [
       { path: 'ViewReimbursementTypes', component: ReimbursementTypesListComponent },
       { path: 'AddNewRequest', component: NewReimbursementComponent },
-      { path: 'Success/:message', component: MessageComponent },
-      { path: 'Failed/:message', component: MessageComponent },
       {
-        path: 'ProcessRequests', component: ProcessReimbursementComponent,
+        path: 'ProcessRequests', component: ReimbursementsListComponent,
         children: [
           { path: 'Requests/:reimbursementId', component: ProcessReimbursementComponent }
         ]

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" routerLink="/Home">Reimbursement</a>
+        <a class="navbar-brand" routerLink="/Home">Reimbursement - {{ header }}</a>
         <button class="navbar-toggler" type="button"  (click)="toggleNavbar()"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,14 +13,8 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/Employee/ViewReimbursementRequests">View Requests</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/Employee/ViewReimbursementTypes">View Types</a>
-                </li>
-                <li class="nav-item"  *ngIf="isExecutive">
-                    <a class="nav-link" routerLink="/Employee/ProcessRequests">Process Requests</a>
-                </li>
             </ul>
-            <div class="d-flex"  *ngIf="!hasLoggedIn">
+            <!-- <div class="d-flex"  *ngIf="!hasLoggedIn">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a routerLink="/Login" class="nav-link ">Login</a>
@@ -39,7 +33,7 @@
                         <a routerLink="/Login" class="nav-link ">View Profile</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </nav>

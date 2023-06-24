@@ -9,14 +9,13 @@ import { catchError, map, throwError } from 'rxjs';
 })
 export class ReimbursementRequestsService {
 
-  reimbursementRequests: ReimbursementRequests[] = [];
-
-  private baseUrl = 'http://localhost:8084/api/reimbursements'
+  private baseUrl = 'http://localhost:8084/api/reimbursements/'
   constructor(private httpClient: HttpClient) { }
 
   getReimbursementRequestById(id: number): any {
-    return this.httpClient.get<any>(this.baseUrl + id);
+    const data: any = this.httpClient.get<any>(this.baseUrl + id);
 
+    return data;
   }
 
   getReimbursementRequestByTravelRequestId(id: number): Observable<ReimbursementRequests[]> {
@@ -24,29 +23,55 @@ export class ReimbursementRequestsService {
 
   }
 
-  private statusCode: number = 0;
-  addReimbursementRequest(reimbursementRequest: ReimbursementRequests): void {
+  getReimbursementRequestByEmployeeId(id: number): Observable<ReimbursementRequests[]> {
+    return this.httpClient.get<any[]>(this.baseUrl + "id:" + id);
+  }
+  statusCode: number = 0;
+
+  addReimbursementRequest(reimbursementRequest: ReimbursementRequests): Observable<number> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    void this.httpClient.post<void>(this.baseUrl + '/add', reimbursementRequest, { headers, observe: 'response' }).pipe(
+    return this.httpClient.post<void>(this.baseUrl + 'add', reimbursementRequest, { headers, observe: 'response' }).pipe(
       map((response: HttpResponse<void>) => {
-        // Get the status code
-        this.statusCode=response.status;
+        const statusCode: number = response.status;
         // Handle the status code as needed
-        if (this.statusCode === 201) {
+        if (statusCode === 201) {
           console.log('Reimbursement created successfully');
         } else {
           console.log('Error creating reimbursement');
         }
+        return statusCode; // Return the status code
       }),
       catchError((error: HttpErrorResponse) => {
         // Handle the error response
-        //console.error('Error creating reimbursement:', error.message)
+        console.error('Error creating reimbursement:', error.message)
         return throwError(500);
       })
-    ).subscribe();
+    );
   }
 
-  getRequestStatus():number{
+  updateReimbursementRequest(reimbursementRequest: ReimbursementRequests, id: number): Observable<number> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    console.log(this.baseUrl+id+'/process')
+    return this.httpClient.put<void>(this.baseUrl +id+'/process', reimbursementRequest, { headers, observe: 'response' }).pipe(
+      map((response: HttpResponse<void>) => {
+        const statusCode: number = response.status;
+        // Handle the status code as needed
+        if (statusCode === 201) {
+          console.log('Reimbursement updated successfully');
+        } else {
+          console.log('Error updating reimbursement');
+        }
+        return statusCode; // Return the status code
+      }),
+      catchError((error: HttpErrorResponse) => {
+        // Handle the error response
+        console.error('Error updating reimbursement:', error.message)
+        return throwError(500);
+      })
+    );
+  }
+  getRequestStatus(): number {
+    console.log(this.statusCode)
     return this.statusCode;
   }
 }

@@ -21,16 +21,13 @@ export class LoginComponent {
   });
 
   handleSubmit() {
-    //console.log('here');
     const user : User = this.login.value;
 
-    console.log(user);
 
     this.loginService.validateLogin(user);
 
     this.checkStatus=this.loginService.isLoggedInUser();
 
-    console.log(this.checkStatus);
     if(this.checkStatus){
       this.router.navigate(['/Employee']);
     }

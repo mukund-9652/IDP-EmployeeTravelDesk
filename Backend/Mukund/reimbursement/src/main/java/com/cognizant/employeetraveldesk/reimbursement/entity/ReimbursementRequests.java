@@ -66,7 +66,7 @@ public class ReimbursementRequests {
 	@Column(name = "documenturl", length = 200)
 	private String documentURL;
 
-	@FutureOrPresent(message = "Processed On Date cannot be a past date")
+	@PastOrPresent(message = "Processed On Date cannot be a past date")
 	@Column(nullable = true, name = "requestprocessedon")
 	private LocalDate requestProcessedOn;
 

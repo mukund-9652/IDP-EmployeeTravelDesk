@@ -1,8 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ReimbursementRequestsService } from 'src/app/services/reimbursement-requests.service';
 
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-reimbursement-request-table',
   templateUrl: './reimbursement-request-table.component.html',
@@ -12,23 +15,63 @@ export class ReimbursementRequestTableComponent {
   pathVariable: string | null = '';
   @Input() id!: number;
   @Input() selectedOption!: string;
-  reimbursementRequest!: any;
+  @Input() isExecutive: boolean = false;
+  @Input() isHr: boolean = false;
+  @Input() isEmployee: boolean = false;
+  @Input() employeeId: number = 0;
+
+  @Input() reimbursementRequest!: any;
+
+  @Output() processClicked: EventEmitter<void> = new EventEmitter<void>();
+
   reimbursementRequests: any[] = [];
   isDataAvailable: boolean = false;
   showError: boolean = false;
   errorMessage: string = '';
 
-  constructor(private _activatedRoute: ActivatedRoute, private reimbursementRequestsService: ReimbursementRequestsService) { }
-
-  ngOnInit() {
-    if (this.selectedOption === 'travelRequestId') {
-      this.getTravelRequestIdData(this.id);
-
-    } else if (this.selectedOption === 'reimbursementRequestId') {
-      this.getReimbursementRequestIdData(this.id);
-    }
+  constructor(private _activatedRoute: ActivatedRoute, private reimbursementRequestsService: ReimbursementRequestsService) {
   }
 
+  ngOnInit() {
+
+    if (this.isEmployee) {
+      this.getEmployeeRequestData(this.employeeId);
+    }
+    else {
+      if (this.selectedOption === 'travelRequestId') {
+        this.getTravelRequestIdData(this.id);
+
+      } else if (this.selectedOption === 'reimbursementRequestId') {
+        this.getReimbursementRequestIdData(this.id);
+      }
+    }
+  }
+  getEmployeeRequestData(empId: number) {
+    this.reimbursementRequestsService.getReimbursementRequestByEmployeeId(empId).subscribe(
+      (requests: any[]) => {
+        this.isDataAvailable = true;
+        this.reimbursementRequests = requests;
+      },
+      (error: any) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.error instanceof ErrorEvent) {
+            // Client-side error
+            this.errorMessage = 'An error occurred:', error.error.message;
+          } else {
+            // Server-side error
+            this.errorMessage =
+              `Backend returned code ${error.status}, body was: ${error.error}.`
+              ;
+            this.errorMessage += '\nError message: ' + error.error.message;
+          }
+        } else {
+          // Other types of errors
+          this.errorMessage = 'An unexpected error occurred:', error;
+        }
+        this.showError = true;
+      }
+    )
+  }
   getTravelRequestIdData(travelRequestId: number) {
     if (this.id) {
       // API call and data retrieval
@@ -43,7 +86,6 @@ export class ReimbursementRequestTableComponent {
         (requests: any[]) => {
           this.isDataAvailable = true;
           this.reimbursementRequests = requests;
-          console.log(this.reimbursementRequests);
         },
         (error: any) => {
           if (error instanceof HttpErrorResponse) {
@@ -79,12 +121,12 @@ export class ReimbursementRequestTableComponent {
         id: <number><unknown>this.pathVariable;
       });
 
-      this.reimbursementRequestsService.getReimbursementRequestById(this.id).subscribe(
+      this.reimbursementRequestsService.getReimbursementRequestById(this.id)
+      .subscribe(
         (request: any) => {
           this.isDataAvailable = true;
           this.reimbursementRequest = request;
           this.reimbursementRequests = [request];
-          console.log(this.reimbursementRequest);
         },
         (error: any) => {
           if (error instanceof HttpErrorResponse) {
@@ -93,10 +135,7 @@ export class ReimbursementRequestTableComponent {
               this.errorMessage = 'An error occurred:', error.error.message;
             } else {
               // Server-side error
-              this.errorMessage =
-                `Backend returned code ${error.status}, body was: ${error.error}.`
-                ;
-              this.errorMessage += '\nError message: ' + error.error.message;
+              this.errorMessage = error.error.message;
             }
           } else {
             // Other types of errors
@@ -118,5 +157,9 @@ export class ReimbursementRequestTableComponent {
     else {
       this.isDataAvailable = false;
     }
+  }
+
+  process() {
+    this.processClicked.emit();
   }
 }

@@ -128,6 +128,23 @@ public class ReimbursementRequestsServiceImpl implements ReimbursementRequestsSe
 			throw new ResourceNotFoundException("Request for Id " + requestDTO.getId() + " was not found");
 		}
 	}
+	
+	@Override
+	public List<ReimbursementRequestsDTO> readRequestByEmployeeId(int id) throws ResourceNotFoundException {
+		// TODO Auto-generated method stub
+		List<ReimbursementRequestsDTO> resultDTO;
+
+		List<ReimbursementRequests> result;
+		result = reimbursementRequestsRepository.findByRequestRaisedByEmployeeId(id);
+
+		if (!result.isEmpty()) {
+			resultDTO = entityDTOMapper.mapEntityToDTO(result);
+			return resultDTO;
+		} else {
+			throw new ResourceNotFoundException("Request for Id " + id + " was not found");
+		}
+	}
+
 
 	/*
 	 * This function is to check invoice date is with in the from and to date of the
@@ -207,5 +224,6 @@ public class ReimbursementRequestsServiceImpl implements ReimbursementRequestsSe
 			return false;
 		}
 	}
+
 
 }

@@ -1,19 +1,22 @@
-<div class="container m-5">
+<router-outlet></router-outlet>
 
-    <form class="form" (submit)="onSearch()">
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="selectedOption" value="travelRequestId" type="radio"
-                name="Radio" id="Radio1" (change)="onOptionChange('travelRequestId')">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Search By Travel Request Id
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="selectedOption" value="reimbursementRequestId" type="radio"
-                name="Radio" id="Radio2" (change)="onOptionChange('reimbursementRequestId')">
-            <label class="form-check-label" for="flexRadioDefault2">
-                Search By Reimburesment Request Id
-            </label>
+<div class="container m-5" *ngIf="(isHr || isExecutive) && showParentContent">
+    <form class="form" (submit)="onSearch()" class="mb-4">
+        <div class="d-flex">
+            <div class="form-check me-4 mb-3">
+                <input class="form-check-input" [(ngModel)]="selectedOption" value="travelRequestId" type="radio"
+                    name="Radio" id="Radio1" (change)="onOptionChange('travelRequestId')">
+                <label class="form-check-label text-light" for="flexRadioDefault1">
+                    Search By Travel Request Id
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="selectedOption" value="reimbursementRequestId" type="radio"
+                    name="Radio" id="Radio2" (change)="onOptionChange('reimbursementRequestId')">
+                <label class="form-check-label text-light" for="flexRadioDefault2">
+                    Search By Reimburesment Request Id
+                </label>
+            </div>
         </div>
         <div class="d-flex">
             <input class="form-control me-2" name="searchId" [(ngModel)]="id" type="search" placeholder="Search"
@@ -23,9 +26,15 @@
     </form>
 
     <div *ngIf="showContent">
-        <app-reimbursement-request-table [selectedOption]="selectedOption" [id]="id"></app-reimbursement-request-table>
+        <app-reimbursement-request-table [isHr]="isHr" [isExecutive]="isExecutive" [selectedOption]="selectedOption"
+            [id]="id"  (processClicked)="hideParentContent()" class="mt-3"></app-reimbursement-request-table>
     </div>
     <div *ngIf="showError">
         <p class="text-danger">{{ errorMessage }}</p>
     </div>
 </div>
+
+<div class="container m-5" *ngIf="isEmployee && showParentContent">
+    <app-reimbursement-request-table [isEmployee]="isEmployee" [employeeId]="employeeId"
+        [selectedOption]="selectedOption" [id]="id" class=" mt-3" ></app-reimbursement-request-table>
+ </div>

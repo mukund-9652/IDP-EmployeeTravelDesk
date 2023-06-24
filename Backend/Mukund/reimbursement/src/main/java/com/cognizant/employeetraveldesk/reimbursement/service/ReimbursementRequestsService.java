@@ -38,4 +38,7 @@ public interface ReimbursementRequestsService {
 
 	// 4. Processing the request
 	boolean updateRequest(ReimbursementRequestsDTO request);
+	
+	List<ReimbursementRequestsDTO> readRequestByEmployeeId(int id);
+
 }

@@ -1,38 +1,77 @@
-<div>
-    <table *ngIf="isDataAvailable" class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">TRAVEL REQUEST ID</th>
-                <th scope="col">REQUEST RAISED BY EMPLOYEE ID</th>
-                <th scope="col">REQUEST DATE</th>
-                <th scope="col">REIMBURSEMENT TYPE ID</th>
-                <th scope="col">INVOICE NO</th>
-                <th scope="col">INVOICE DATE</th>
-                <th scope="col">INVOICE AMOUNT</th>
-                <th scope="col">DOCUMENT URL</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let request of reimbursementRequests">
-                <th scope="row">{{ request.id }}</th>
-                <td>{{ request.travelRequestId }}</td>
-                <td>{{ request.requestRaisedByEmployeeId }}</td>
-                <td>{{ request.requestDate }}</td>
-                <td>{{ request.reimbursementTypes.id }}</td>
-                <td>{{ request.invoiceNo }}</td>
-                <td>{{ request.invoiceDate }}</td>
-                <td>{{ request.invoiceAmount }}</td>
-                <td>{{ request.documentURL }}</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <div *ngIf="showError" >
-        <p class="text-danger">
-            {{ errorMessage }}
-        </p>
-    </div>
+<div class="mask d-flex align-items-center h-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card mask-custom">
+                    <div class="card-body">
+                        <div *ngIf="isExecutive">
+                            <table *ngIf="isDataAvailable" class="bg-transparent mt-3
+                            " id="bg-transparent">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">TRAVEL REQUEST ID</th>
+                                        <th scope="col">REQUEST RAISED BY EMPLOYEE ID</th>
+                                        <th scope="col">REQUEST DATE</th>
+                                        <th scope="col">INVOICE AMOUNT</th>
+                                        <th scope="col">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let request of reimbursementRequests" class="align-middle">
+                                        <td>{{ request.travelRequestId }}</td>
+                                        <td>{{ request.requestRaisedByEmployeeId }}</td>
+                                        <td>{{ request.requestDate }}</td>
+                                        <td>{{ '₹'+request.invoiceAmount }}</td>
+                                        <td>{{ request.status }}</td>
+                                        <td> <button type="button" class="btn btn-outline-light"
+                                                [routerLink]="'/Employee/ProcessRequests/Requests/' + request.id"
+                                                (click)="process()">
+                                                Process
+                                            </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
+                            <div *ngIf="showError">
+                                <p class="text-danger">
+                                    {{ errorMessage }}
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div *ngIf="isEmployee">
+                            <table *ngIf="isDataAvailable" class="bg-transparent mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">TRAVEL REQUEST ID</th>
+                                        <th scope="col">REQUEST DATE</th>
+                                        <th scope="col">INVOICE AMOUNT</th>
+                                        <th scope="col">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let request of reimbursementRequests">
+                                        <th scope="row">{{ request.id }}</th>
+                                        <td>{{ request.travelRequestId }}</td>
+                                        <td>{{ request.requestDate }}</td>
+                                        <td>{{ '₹'+request.invoiceAmount }}</td>
+                                        <td>{{ request.status }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div *ngIf="showError">
+                                <p class="text-danger">
+                                    {{ errorMessage }}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

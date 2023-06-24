@@ -69,7 +69,7 @@ public class ReimbursementRequestsDTO {
 	private String documentURL;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@FutureOrPresent(message = "Processed On Date cannot be a past date")
+	@PastOrPresent(message = "Processed On Date cannot be a past date")
 	private LocalDate requestProcessedOn;
 
 	private Integer requestProcessedByEmployeeId;

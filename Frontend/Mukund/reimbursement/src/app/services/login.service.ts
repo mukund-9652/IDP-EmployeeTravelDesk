@@ -6,33 +6,61 @@ import { User } from '../common/interface/user';
 })
 export class LoginService {
   private isInUser: boolean = true;
-  private isExecutive: boolean = false;
+  private isExecutive: boolean = true;
+  private isEmployee: boolean = false;
+  hrId: number= 9999;
+  employeeId: number = 9991;
+  deskExecutive: number= 9998;
+  
+  
   private users: User[] = [{
     emailId: 'mukund@cognizant.com',
     password: 'privatePassword123!'
   },
   {
-    emailId: 'mukund.admin@cognizant.com',
+    emailId: 'mukund.executive@cognizant.com',
     password: 'privatePassword123!'
-  }];
-  constructor() { }
+  },
+  {
+    emailId: 'mukund.hr@cognizant.com',
+    password: 'privatePassword123!'
+  },
+];
+constructor() { }
 
-  isLoggedInUser(): boolean {
-    return this.isInUser;
+isLoggedInUser(): boolean {
+  return this.isInUser;
   }
 
-  isAdmin():boolean{
+  isHrOfCompany(): boolean {
+    return this.isHr;
+  }
+
+  isDeskExecutive(): boolean {
     return this.isExecutive;
   }
-
+  isEmployeeOfCompany(): boolean {
+    return this.isEmployee;
+  }
+  
   validateLogin(newUser: User): void {
     this.users.map((user) => {
       if (user.emailId === newUser.emailId && user.password === newUser.password) {
-        this.isInUser = true;
-        if(user.emailId.includes('admin')){
-          this.isExecutive=true;
+        if (user.emailId.includes('executive')) {
+          this.isInUser = true;
+          this.isExecutive = true;
+        } else if (user.emailId.includes('hr')) {
+          this.isInUser = true;
+          this.isHr = true;
+        } else if (user.emailId.includes('@cognizant.com')) {
+          this.isInUser = true;
+          this.isEmployee = true;
+        }
+        else {
+          this.isInUser = false;
         }
       }
     });
   }
+  private isHr: boolean = false;
 }
